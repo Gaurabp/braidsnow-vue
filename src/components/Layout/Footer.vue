@@ -34,8 +34,6 @@
 									<router-link :to="{name: loginedUser?.role_id == 2 ?'BraiderDashboard':'Dashboard'}">Dashboard
 									</router-link>
 								</li>
-
-								<li><a href="">BraidsNow Blog</a></li>
 								
 							</ul>
 						</div>
@@ -91,34 +89,14 @@
 
 					<div class="col-lg-3 col-md-6">
 						<div class="footer-widget footer-menu">
-							<h2 class="footer-title">Our Services</h2>
-							<ul>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Skincare & Facials
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Body Treatments
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Couples Treatments
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Cryoskin Therapy
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Manicure & Pedicure
-									</router-link>
-								</li>
-							</ul>
+							<h2 class="footer-title" style="margin-bottom: 10px;">Newsletter</h2>
+							<h5 style="color:white;padding-bottom: 10px; font-size: 14px;">Sign up below to receive latest updates and news</h5>
+							<div class="input-group mb-3">
+<input type="email" v-model="email" class="form-control" placeholder="Your Email Address">
+<div class="input-group-append">
+<button class="btn btn-success" type="button" @click="newsletter()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+</div>
+</div>
 						</div>
 					</div>
 				</div>
@@ -145,8 +123,15 @@
 </template>
 <script>
 	import Auth from '@/models/Auth'
+	import Swal from 'sweetalert2';
+	
 export default {
 	name: 'Footer',
+	data(){
+		return{
+			email:'',
+		}
+	},
 	computed: {
 		routeName(){
 			return this.$route.name;
@@ -160,6 +145,16 @@ export default {
 			}
 			return null;
 			
+		}
+	},
+	methods:{
+		newsletter(){
+			if (this.email) {
+
+				Swal.fire("thanks for subscribing to our newsletter");
+			}else{
+				Swal.fire("please enter valid email address");
+			}
 		}
 	}
 }

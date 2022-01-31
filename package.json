@@ -15,7 +15,10 @@
     "core-js": "^3.6.5",
     "devextreme": "21.1.6",
     "devextreme-vue": "21.1.6",
+    "html-to-pdfmake": "^2.3.7",
+    "jspdf": "^2.5.0",
     "moment": "^2.29.1",
+    "pdfmake": "^0.2.4",
     "stripe-client": "^1.1.5",
     "sweetalert2": "^11.1.7",
     "vue": "^3.2.7",
@@ -36,7 +39,9 @@
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint-plugin-vue": "^7.0.0",
+    "laravel-echo": "^1.11.3",
+    "pusher-js": "^7.0.3"
   },
   "eslintConfig": {
     "root": true,

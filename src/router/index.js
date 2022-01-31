@@ -43,12 +43,24 @@ const SendCustomEmail = () => import("@/views/Therapist/SendCustomEmail");
 const Coupon = () => import("@/views/Therapist/Coupon");
 const CouponCreate = () => import("@/views/Therapist/CreateCoupon");
 const AccountDetail = () => import("@/views/Therapist/AccountDetail");
+const ChatCustomer = () => import("@/views/Customer/Chats");
+const ChatBraider = () => import("@/views/Therapist/Chats");
+const HairStyle = () => import("@/views/Therapist/HairStyle");
+const Test = () => import("@/views/Test");
 
 
 const routes = [{
 	path: "/",
 	name: "Home",
 	component: Home,
+},
+{
+	path: "/test",
+	name: "Test",
+	component: Test,
+	meta: {
+		guest: true
+	}
 },
 {
 	path: "/login",
@@ -185,6 +197,15 @@ const routes = [{
 	}
 },
 {
+	path: "/chat/:id?",
+	name: "ChatCustomer",
+	component: ChatCustomer,
+	meta: {
+		requiresAuth: true,
+		is_customer : true
+	}
+},
+{
 	path: "/braider-dashboard",
 	name: "BraiderDashboard",
 	component: BraiderDashboard,
@@ -194,6 +215,16 @@ const routes = [{
 	}
 },
 {
+	path: "/braider-chat",
+	name: "ChatBraider",
+	component: ChatBraider,
+	meta: {
+		requiresAuth: true,
+		is_braider : true
+	}
+},
+
+{
 	path: "/cancel-account",
 	name: "CancelAccount",
 	component: CancelAccount,
@@ -202,6 +233,16 @@ const routes = [{
 		is_braider : true
 	}
 },
+{
+	path: "/hair-style/:id",
+	name: "HairStyle",
+	component: HairStyle,
+	meta: {
+		requiresAuth: true,
+		is_braider : true
+	}
+},
+
 {
 	path: "/appointments",
 	name: "Appointments",
@@ -257,7 +298,7 @@ const routes = [{
 	}
 },
 {
-	path: "/send-email",
+	path: "/send-email/:id",
 	name: "SendEmail",
 	component: SendEmail,
 	meta: {

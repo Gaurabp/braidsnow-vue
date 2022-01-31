@@ -29,7 +29,7 @@
 	<Loader :isLoading="isLoading"/>
 </template>
 <script>
-	import MenuComponent from '../components/Layout/Menu'
+	import MenuComponent from '@/components/Layout/Menu'
 	import { getCms } from '@/services/cms'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'

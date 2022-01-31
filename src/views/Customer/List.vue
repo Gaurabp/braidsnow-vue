@@ -1,7 +1,23 @@
 <template>
-<MenuComponent/>	
+<MenuComponent/>
+	<div class="breadcrumb-bar">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-md-8 col-12">
+					<nav aria-label="breadcrumb" class="page-breadcrumb">
+						<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Find a Styler</li>
+						</ol>
+					</nav>
+					<h2 class="breadcrumb-title">Find a Styler</h2>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 <div class="content">
-	<div class="container">
+	<div class="container"> 
 		<div class="row">
 			<div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
 				<div class="card search-filter">
@@ -193,25 +209,38 @@
 									<img :src="basePath+braider.avatar" class="img-fluid" :alt="braider.name">
 									</route-link>
 
+									<h5 class="pro-department" style="margin-top:10px">
+										<a @click="copyText($event,braider.id)" href="#!"  >
+											Click here to copy
+										</a>
+									</h5>
+
 								</div>
 
 								<div class="pro-info-cont">
 
 									<h4 class="pro-name">
-										<route-link :to="{name:'Profile',param:{id:braider.id}}">
+										<route-link :to="{name:'Profile',params:{id:braider.id}}">
 											{{braider.name}}
-											<a href="javascript:void(0)" @click="addFav(braider.id)" class="fav-btn">
-												<i class="far fa-heart"></i>
-											</a>
 										</route-link>{{" "}}
-										<svg width="24" height="24" @click="shareProfile(braider)" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 16V5.41421L16.2929 8.70711L17.7071 7.29289L12 1.58578L6.29289 7.29289L7.70711 8.70711L11 5.41421V16H13ZM21 20V11H19V20H5V11H3V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20Z" fill="#121111"></path></svg>
+											<a href="javascript:void(0)" @click="addFav(braider.id)" class="fav-btn">
+												<i class="fa fa-heart" style="color:#6b04a9"></i>
+											</a>{{" "}}
+									
+										<i 
+										style="color:#6b04a9"
+										class="fa fa-share-alt" 
+										@click="shareProfile(braider)"
+										aria-hidden="true"></i>
+										{{" "}}
+										<router-link :to="{name:'ChatCustomer',params:{id:braider.id}}">
+											<i style="color:#6b04a9" class="fa fa-comment-alt"></i>
+										</router-link>
 									</h4>
 									<p class="pro-speciality"> 
 										
 									</p>
-									<h5 class="pro-department" v-if="braider.user_services.length">
-										<c v-for="service in braider.user_services" :key="service.id">{{service.service}}</c>
-									</h5>
+								
 
 									<div class="rating">
 
@@ -223,21 +252,21 @@
 									<div class="clinic-details">
 										<p class="pro-location">
 											<i class="fas fa-map-marker-alt"></i> 
-											{{braider.city}},{{braider.state}},{{braider.country || 'USA'}}
+											{{braider.city}},{{braider.state}},{{braider.country}}
 										</p>
 
 										<ul class="clinic-gallery">
-											<li v-for="(portfolio,index) in braider.portfolio" :key="portfolio.id" >
-												<a href="assets/img/services/1.png" data-fancybox="gallery" v-if="index < 5">
-												<img src="assets/img/services/1.png" alt="Feature">
-												</a>
+											<li v-for="portfolio in braider.portfolio" :key="portfolio.id" >
+												<a :href="basePath+portfolio.image" data-fancybox="gallery">
+												<img :src="basePath+portfolio.image" alt="Feature"/>
+											</a>
 											</li>
 										</ul>
 
 									</div>
 									
 									<div class="clinic-services" v-if="braider.user_services.length">
-										<span v-for="service in braider.user_services" :key="service.id">{{service.service}}</span>
+										<span style="color:#6b04a9" v-for="service in braider.user_services" :key="service.id">{{service.service}}</span>
 									</div>
 								</div>
 							</div>
@@ -322,6 +351,19 @@
 					<div class="row">
 						<div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
 							<div 
+							@click="shareEmail()"
+							style="background-color: #6b04a9;
+							height: 30px;
+							line-height: 2;
+							width: 100%;
+							text-align: center;
+							color: white;
+							"> Email</div>
+						</div>
+					</div> <hr>
+					<div class="row">
+						<div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
+							<div 
 							@click="shareWhatsapp()"
 							style="background-color: #2e9688;
 							height: 30px;
@@ -343,19 +385,17 @@
 
 </template>
 <script>
-import MenuComponent from '../../components/Layout/Menu'
+import MenuComponent from '@/components/Layout/Menu'
 import * as Website from '@/services/websiteServices'
 import Braider from '@/models/Braider'
-import AssetsPath from '@/utils/AssetsPath'
-import BaseUrl from '@/utils/BaseUrl'
-import {services as ServiceAPI} from  '@/services/auth'
+import {services as ServiceAPI} from '@/services/auth'
 import {favouriteStore} from '@/services/CustomerServices'
 import Auth from '@/models/Auth'
 import Social from '@/plugins/SocialShare'
-//import Select2 from 'vue3-select2-component';
 import Multiselect from '@vueform/multiselect'
 import Loader from '@/components/Loader';
 import FooterComponent from '@/components/Layout/Footer'
+import swal from 'sweetalert2';
 
 	export default {
 		name:'List',
@@ -391,10 +431,10 @@ import FooterComponent from '@/components/Layout/Footer'
 		},
 		computed:{
 			basePath(){
-				return AssetsPath;
+				return process.env.VUE_APP_ASSET_URL;
 			},
 			baseUrl(){
-				return BaseUrl;
+				return process.env.VUE_APP_BASE_URL;
 			},
 			token(){
 				
@@ -570,12 +610,27 @@ import FooterComponent from '@/components/Layout/Footer'
 			onSearchLocation(){
 
 			},
-			addFav(braider_id){
+			copyText(e,id) {
+				let textToCopy = `${process.env.VUE_APP_WEBSITE_URL}profile/${id}`;
+				e.preventDefault();
+				var myTemporaryInputElement = document.createElement("input");
+				myTemporaryInputElement.type = "text";
+				myTemporaryInputElement.value = textToCopy;
+				document.body.appendChild(myTemporaryInputElement);
+				myTemporaryInputElement.select();
+				document.execCommand("Copy");
+				swal.fire("Copied");
+				document.body.removeChild(myTemporaryInputElement);
+			},
+
+			async addFav(braider_id){
 				if (this.auth) {
 
-					favouriteStore(this.token,{braider_id})
+					await favouriteStore(this.token,{braider_id});
+
+					swal.fire("added to your favorite");
 				}else{
-					//this.$router.push('/login');
+					this.$router.push('/login');
 				}
 			},
 			onCopy: function (id) {
@@ -624,6 +679,14 @@ import FooterComponent from '@/components/Layout/Footer'
 				const social = new Social;
 
 				const url = social.whatsapp(link,'Braider Profile',);
+
+				window.open(url, '_blank');
+			},
+			shareEmail(){
+				let link = this.baseUrl+'profile/'+this.shareData.id;
+				const social = new Social;
+
+				const url = social.email(link,'Braider Profile',this.shareData.introduction);
 
 				window.open(url, '_blank');
 			}

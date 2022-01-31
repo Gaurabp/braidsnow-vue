@@ -49,3 +49,10 @@ export const workingDayAPI = async data => await axios.post(`user/working-days`,
 */
 export const Invoice = async data => await axios.post(`invoice`,data);
 
+/*
+|-------------------------------------------------------------------------------
+| who we are
+|-------------------------------------------------------------------------------
+*/
+export const WhoWeAre = async () => await axios.get(`who-we-are`);
+

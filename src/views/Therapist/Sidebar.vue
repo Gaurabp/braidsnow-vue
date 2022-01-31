@@ -33,7 +33,7 @@
 									@click="connectStripe">Please Activate Your Account</button>
 									</div>
 									<div class="customer-details" v-else>
-										Connected
+										<a href="#" @click="copyText($event)">Click here to copy link</a>
 									</div>
 								</div>
 							</div>
@@ -47,6 +47,13 @@
 											<i class="fas fa-share-alt"></i>
 											<span>Share Profile</span>
 										</a>
+										
+									</li>
+									<li>
+										<router-link :to="{name:'ChatBraider'}">
+											<i class="fas fa-comment"></i>
+											<span>Message</span>
+										</router-link>
 										
 									</li>
 									<li v-bind:class="{ active: this.$route.name == 'BraiderDashboard' }">
@@ -111,13 +118,13 @@
 										<span>Profile Settings</span>
 										</router-link>
 									</li>
-									<li v-bind:class="{ active: this.$route.name == 'AccountDetail' }">
+									<!-- <li v-bind:class="{ active: this.$route.name == 'AccountDetail' }">
 										<router-link :to="{name:'AccountDetail'}">
 									
 										<i class="fa fa-credit-card" aria-hidden="true"></i>
 										<span>Account Detail</span>
 										</router-link>
-									</li>
+									</li> -->
 									<li v-bind:class="{ active: this.$route.name == 'SocialMedia' }">
 										<router-link :to="{name:'SocialMedia'}">
 										<i class="fas fa-share-alt"></i>
@@ -158,7 +165,7 @@
 							</nav>
 						</div>
 					</div>
-<div class="modal fade custom-modal" id="paymentModal" >
+<div class="modal fade custom-modal" id="paymentModal2" >
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -199,6 +206,19 @@
 					<div class="row">
 						<div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
 							<div 
+							@click="shareEmail()"
+							style="background-color: #6b04a9;
+							height: 30px;
+							line-height: 2;
+							width: 100%;
+							text-align: center;
+							color: white;
+							"> Email</div>
+						</div>
+					</div> <hr>
+					<div class="row">
+						<div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
+							<div 
 							@click="shareWhatsapp()"
 							style="background-color: #2e9688;
 							height: 30px;
@@ -213,7 +233,7 @@
 			</div>
 		</div>
 	</div>
-	<a data-target="#paymentModal" data-toggle="modal" ref="openPaymentModal"></a>
+	<a data-target="#paymentModal2" data-toggle="modal" ref="openPaymentModal2"></a>
 				</div>
 </template>
 <script>
@@ -222,6 +242,7 @@
 	import { StripeAccount} from '@/services/dashboardService'
 	import Social from '@/plugins/SocialShare'
 	import BaseUrl from '@/utils/BaseUrl'
+	import Swal from 'sweetalert2';
 
 	export default{
 
@@ -252,7 +273,7 @@
 			shareProfile(braider){
 
 				this.shareData = braider;
-				this.$refs.openPaymentModal.click();
+				this.$refs.openPaymentModal2.click();
 			},
 			connectStripe(){
 				this.isLoading = true;
@@ -293,6 +314,26 @@
 				const url = social.whatsapp(link,'Braider Profile',);
 
 				window.open(url, '_blank');
+			},
+			shareEmail(){
+				let link = this.baseUrl+'profile/'+this.shareData.id;
+				const social = new Social;
+
+				const url = social.email(link,'Braider Profile',this.auth.introduction);
+
+				window.open(url, '_blank');
+			},
+			copyText(e) {
+				let textToCopy = `${this.baseUrl}profile/${this.auth.id}`;
+				e.preventDefault();
+				var myTemporaryInputElement = document.createElement("input");
+				myTemporaryInputElement.type = "text";
+				myTemporaryInputElement.value = textToCopy;
+				document.body.appendChild(myTemporaryInputElement);
+				myTemporaryInputElement.select();
+				document.execCommand("Copy");
+				Swal.fire("Copied");
+				document.body.removeChild(myTemporaryInputElement);
 			}
 		}
 	}

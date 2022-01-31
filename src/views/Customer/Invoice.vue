@@ -26,7 +26,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="invoice-logo">
-										<img src="assets/logo.png" alt="logo">
+										<img :src="assetsPath+settingData.logo_website" alt="logo">
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -152,6 +152,8 @@ import MenuComponent from '@/components/Layout/Menu'
 import {Invoice} from '@/services/websiteServices'
 import Loader from '@/components/Loader';
 import FooterComponent from '@/components/Layout/Footer'
+import { settings } from '@/services/auth'
+import AssetsPath from '@/utils/AssetsPath';
 
 	export default {
 		name:'BookingSuccess',
@@ -159,10 +161,20 @@ import FooterComponent from '@/components/Layout/Footer'
 		data(){
 			return {
 				invoice:{},
+				settingData:{},
 				isLoading:true,
 			}
 		},
+		computed: {
+			assetsPath(){
+				return AssetsPath;
+			}
+		},
 		async mounted(){
+
+			await settings()
+			.then(async res => this.settingData = await res.data)
+			.catch(err => console.log(err));
 
 			await Invoice({id:this.$route.params.id})
 			.then(res => this.invoice = res.data);

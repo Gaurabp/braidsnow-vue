@@ -43,4 +43,22 @@ export const ReviweStore = async (token,data) => await axios(token).post(`review
 */
 export const ClaimRefund = async (token,data) => await axios(token).post(`appointments/claim-refund`,data);
 
+/*
+|-------------------------------------------------------------------------------
+| Chat
+|-------------------------------------------------------------------------------
+*/
+export const chatCreate = async (token,data) => await axios(token).post(`chat`,data);
+/*
+|-------------------------------------------------------------------------------
+| Chat history
+|-------------------------------------------------------------------------------
+*/
+export const chatHistory = async (token,data) => await axios(token).post(`chat-history`,data);
+/*
+|-------------------------------------------------------------------------------
+| Chat Contacts
+|-------------------------------------------------------------------------------
+*/
+export const chatContact = async (token) => await axios(token).post(`chat-contacts`);
 

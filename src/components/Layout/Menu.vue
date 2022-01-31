@@ -35,14 +35,51 @@
 					<li :class="{ active: (routeName == 'Dashboard' || routeName == 'BraiderDashboard') }" @click="changeScreen({name: loginedUser?.role_id == 2 ?'BraiderDashboard':'Dashboard'})" v-else>
 						<a href="javascript:;">Dashboard </a>
 					</li>
+
+					<span class="login-desk">
+					<li v-if="loginedUser" class="has-submenu login" style="float: right;">
+					<a 
+					href="#"
+					class="login-btn"
+					v-if="loginedUser">{{loginedUser?'Welcome '+loginedUser?.name:'Login / Signup'}}</a>
+					<ul class="submenu">
+					<li><a href="#!" @click="onLogout($event)">Logout</a></li>
+					
+					</ul>
+					
+					</li>
+					<li v-else>
+					<router-link 
+					:to="{name:'Login'}" 
+					class="login-btn"
+					v-if="!loginedUser"
+					>
+					Login / Signup </router-link>
+					</li>
+					</span>
 					
 				</ul>
 			</div>
-			<ul class="nav header-navbar-rht">
-				<li>
-					<router-link :to="{name:loginedUser == ''?'Login':(loginedUser == 'customer'?'Dashboard':'BraiderDashboard')}" class="login-btn"><i class="fa fa-user login-action"></i>
-					{{loginedUser?'Welcome '+loginedUser?.name:'Login / Signup'}}  </router-link>
-				</li>
+			<ul class="main-nav login">
+				<li v-if="loginedUser" class="has-submenu login" style="float: right;">
+					<a 
+					href="#"
+					class="login-btn"
+					v-if="loginedUser">{{loginedUser?'Welcome '+loginedUser?.name:'Login / Signup'}} <i class="fas fa-chevron-down"></i></a>
+					<ul class="submenu">
+					<li><a href="#!" @click="onLogout($event)">Logout</a></li>
+					
+					</ul>
+					
+					</li>
+					<li v-else>
+					<router-link 
+					:to="{name:'Login'}" 
+					class="login-btn"
+					v-if="!loginedUser"
+					><i class="fa fa-user login-action"></i>
+					Login / Signup </router-link>
+					</li>
 			</ul>
 		</nav>
 	</header>
@@ -98,13 +135,42 @@ export default {
 			this.$refs.closeMenu.click();
 			this.$router.push(path);
 		},
+		onLogout(e){
+			e.preventDefault()
+			localStorage.removeItem('api_token');
+			Auth.deleteAll();
+			this.$router.push({ name: 'Home'});
+		}
 	}
 }
 </script>
 <style>
 	.desktopLogo{
-		height: 15%;
-		width: 25%;
+		height: 130px;
+		width: 130px;
 		margin-top:0px;
 	}
+	.login-desk{
+		display: none;
+	}
+@media screen and (max-width: 575.98px)
+{
+	.login{
+		display: none;
+	}
+	.login-desk{
+		display: inline-block;
+	}
+	.min-header .main-nav .login-desk li a{
+		line-height: 1.5;
+    padding: 15px 20px!important;
+    color: #fff!important;
+    font-size: 14px;
+    font-weight: 500;
+	}
+	.navbar-brand.logo img{
+		height: 80px;
+	}
+}
+
 </style>

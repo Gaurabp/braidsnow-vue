@@ -24,13 +24,13 @@
 					<div class="card card-table">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-md-10"></div>
 								<div class="col-md-2">
 									<router-link :to="{name:'CouponCreate'}" class="btn btn-success" style="margin-top:10px">
 										Create Coupon
 									</router-link>
 									
 								</div>
+								<div class="col-md-10"></div>
 							</div>
 							
 							<div class="table-responsive">

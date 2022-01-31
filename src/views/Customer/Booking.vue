@@ -338,11 +338,12 @@
 						this.lunchEnd = parseInt(res.data.lunch_end_time)
 						
 						for (let i = this.dayStart; i<= this.dayEnd; i++) {
-							let checBooked = bookedDated.find(o => o.startTime <= i && o.endTime >= i);
+
+							let checkBooked = bookedDated.find(o => o.startTime <= i && o.endTime >= i);
 							
-							if (bookedDated.length &&  checBooked!= undefined) {
+							if (bookedDated.length &&  checkBooked!= undefined) {
 								
-								if (i < checBooked.startTime || i >= checBooked.endTime) {
+								if (i < checkBooked.startTime || i >= checkBooked.endTime) {
 
 									if (res.data.is_block_lunch_time) {
 
@@ -352,7 +353,28 @@
 												time: moment(`${i}:00`,'hh:mm A').format('hh:mm A'),
 												startTime: this.dayStart,
 												endTime: this.dayEnd,
-												current: i,
+												current: `${i}:00`,
+												isSelected:false
+											});
+											await this.objSlot.push({
+												time: moment(`${i}:15`,'hh:mm A').format('hh:mm A'),
+												startTime: this.dayStart,
+												endTime: this.dayEnd,
+												current: `${i}:15`,
+												isSelected:false
+											});
+											await this.objSlot.push({
+												time: moment(`${i}:30`,'hh:mm A').format('hh:mm A'),
+												startTime: this.dayStart,
+												endTime: this.dayEnd,
+												current: `${i}:30`,
+												isSelected:false
+											});
+											await this.objSlot.push({
+												time: moment(`${i}:45`,'hh:mm A').format('hh:mm A'),
+												startTime: this.dayStart,
+												endTime: this.dayEnd,
+												current: `${i}:45`,
 												isSelected:false
 											});
 											
@@ -363,7 +385,28 @@
 											time: moment(`${i}:00`,'hh:mm A').format('hh:mm A'),
 											startTime: this.dayStart,
 											endTime: this.dayEnd,
-											current: i,
+											current: `${i}:00`,
+											isSelected:false
+										});
+										await this.objSlot.push({
+											time: moment(`${i}:15`,'hh:mm A').format('hh:mm A'),
+											startTime: this.dayStart,
+											endTime: this.dayEnd,
+											current: `${i}:15`,
+											isSelected:false
+										});
+										await this.objSlot.push({
+											time: moment(`${i}:30`,'hh:mm A').format('hh:mm A'),
+											startTime: this.dayStart,
+											endTime: this.dayEnd,
+											current: `${i}:30`,
+											isSelected:false
+										});
+										await this.objSlot.push({
+											time: moment(`${i}:45`,'hh:mm A').format('hh:mm A'),
+											startTime: this.dayStart,
+											endTime: this.dayEnd,
+											current: `${i}:45`,
 											isSelected:false
 										});
 										
@@ -378,7 +421,28 @@
 											time: moment(`${i}:00`,'hh:mm A').format('hh:mm A'),
 											startTime: this.dayStart,
 											endTime: this.dayEnd,
-											current: i,
+											current: `${i}:00`,
+											isSelected:false
+										});
+										await this.objSlot.push({
+											time: moment(`${i}:15`,'hh:mm A').format('hh:mm A'),
+											startTime: this.dayStart,
+											endTime: this.dayEnd,
+											current: `${i}:15`,
+											isSelected:false
+										});
+										await this.objSlot.push({
+											time: moment(`${i}:30`,'hh:mm A').format('hh:mm A'),
+											startTime: this.dayStart,
+											endTime: this.dayEnd,
+											current: `${i}:30`,
+											isSelected:false
+										});
+										await this.objSlot.push({
+											time: moment(`${i}:45`,'hh:mm A').format('hh:mm A'),
+											startTime: this.dayStart,
+											endTime: this.dayEnd,
+											current: `${i}:45`,
 											isSelected:false
 										});
 										
@@ -389,12 +453,34 @@
 										time: moment(`${i}:00`,'hh:mm A').format('hh:mm A'),
 										startTime: this.dayStart,
 										endTime: this.dayEnd,
-										current: i,
+										current: `${i}:00`,
+										isSelected:false
+									});
+									await this.objSlot.push({
+										time: moment(`${i}:15`,'hh:mm A').format('hh:mm A'),
+										startTime: this.dayStart,
+										endTime: this.dayEnd,
+										current: `${i}:15`,
+										isSelected:false
+									});
+									await this.objSlot.push({
+										time: moment(`${i}:30`,'hh:mm A').format('hh:mm A'),
+										startTime: this.dayStart,
+										endTime: this.dayEnd,
+										current: `${i}:30`,
+										isSelected:false
+									});
+									await this.objSlot.push({
+										time: moment(`${i}:45`,'hh:mm A').format('hh:mm A'),
+										startTime: this.dayStart,
+										endTime: this.dayEnd,
+										current: `${i}:45`,
 										isSelected:false
 									});
 								}
 							}
 						}
+
 						this.objSlot = this.sliceIntoChunks(this.objSlot,3);
 						this.slotStaus = true;
 					}

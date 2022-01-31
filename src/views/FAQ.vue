@@ -145,7 +145,7 @@
 	<Loader :isLoading="isLoading"/>
 </template>
 <script>
-	import MenuComponent from '../components/Layout/Menu'
+	import MenuComponent from '@/components/Layout/Menu'
 	import { faq } from '@/services/faq'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'

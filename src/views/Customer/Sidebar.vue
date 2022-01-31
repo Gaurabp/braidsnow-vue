@@ -9,7 +9,7 @@
 					<div class="profile-det-info">
 						<h3>{{auth.name}} </h3>
 						<div class="customer-details">
-							<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i>{{auth.city}}, {{auth.state}}, USA</h5>
+							<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i>{{auth.city}}, {{auth.state}}</h5>
 						</div>
 					</div>
 				</div>
@@ -17,6 +17,12 @@
 			<div class="dashboard-widget">
 				<nav class="dashboard-menu">
 					<ul>
+						<li>
+							<router-link :to="{name:'ChatCustomer'}">
+								<i class="fas fa-comment"></i>
+									<span>Message</span>
+							</router-link>
+						</li>
 						<li v-bind:class="{ active: this.$route.name == 'Dashboard' }">
 							<router-link :to="{name:'Dashboard'}">
 								<i class="fas fa-columns"></i>
@@ -26,7 +32,7 @@
 						<li v-bind:class="{ active: this.$route.name == 'Favourite' }">
 							<router-link :to="{name:'Favourite'}">
 								<i class="fas fa-bookmark"></i>
-								<span>Favourites</span>
+								<span>Favorites</span>
 							</router-link>
 						</li>
 						<li v-bind:class="{ active: this.$route.name == 'ProfileSetting' }">

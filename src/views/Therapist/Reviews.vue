@@ -21,116 +21,34 @@
 			<div class="row">
 				<Sidebar/>
 				<div class="col-md-7 col-lg-8 col-xl-9">
-										<div class="pro-review review-listing">
+						<div class="pro-review review-listing">
 
 						<ul class="comments-list">
 
-							<li>
+							<li v-for="review in reviewData" :key="review.id">
 								<div class="comment">
-									<img class="avatar rounded-circle" alt="User Image" src="assets/img/customers/customer.jpg">
+									<img 
+									class="avatar rounded-circle"
+									alt="User Image" 
+									:src="assetPath+review?.user?.avatar">
 									<div class="comment-body">
 										<div class="meta-data">
-											<span class="comment-author">Richard Wilson</span>
-											<span class="comment-date">Reviewed 2 Days ago</span>
+											<span class="comment-author">{{review.user.name}} </span>
+											<span class="comment-date">Reviewed {{review.reviewed_at}}</span>
 											<div class="review-count rating">
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star"></i>
-											</div>
+														<i class="fas fa-star filled" v-for="(i,index) in review.ratting" :key="index"></i>
+														
+														<i class="fas fa-star" v-for="(j,index) in (5 - review.ratting)" :key="index"></i>
+													</div>
+
 										</div>
-										<p class="recommended"><i class="far fa-thumbs-up"></i> I recommend the theraphist</p>
-										<p class="comment-content">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-										Ut enim ad minim veniam, quis nostrud exercitation.
-										Curabitur non nulla sit amet nisl tempus
+										<p class="recommended"> {{review.title}}</p>
+										<p class="comment-content" style="width:200px">
+										{{review.review}}
 										</p>
-										<div class="comment-reply">
-											<a class="comment-btn" href="#">
-											<i class="fas fa-reply"></i> Reply
-											</a>
-											<p class="recommend-btn">
-											<span>Recommend?</span>
-											<a href="#" class="like-btn">
-											<i class="far fa-thumbs-up"></i> Yes
-											</a>
-											<a href="#" class="dislike-btn">
-											<i class="far fa-thumbs-down"></i> No
-											</a>
-											</p>
-										</div>
+										
 									</div>
-								</div>
-
-								<ul class="comments-reply">
-
-									<li>
-										<div class="comment">
-											<img class="avatar rounded-circle" alt="User Image" src="assets/img/theraphist/theraphist.jpg">
-											<div class="comment-body">
-												<div class="meta-data">
-													<span class="comment-author">Ashley Willes</span>
-													<span class="comment-date">Reviewed 3 Days ago</span>
-												</div>
-												<p class="comment-content">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-												sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-												Ut enim ad minim veniam.
-												Curabitur non nulla sit amet nisl tempus
-												</p>
-												<div class="comment-reply">
-													<a class="comment-btn" href="#">
-													<i class="fas fa-reply"></i> Reply
-													</a>
-												</div>
-											</div>
-										</div>
-									</li>
-
-								</ul>
-
-							</li>
-
-
-							<li>
-								<div class="comment">
-									<img class="avatar rounded-circle" alt="User Image" src="assets/img/customers/customer2.jpg">
-									<div class="comment-body">
-										<div class="meta-data">
-											<span class="comment-author">Travis Trimble</span>
-											<span class="comment-date">Reviewed 4 Days ago</span>
-											<div class="review-count rating">
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-											</div>
-										</div>
-										<p class="comment-content">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-										Ut enim ad minim veniam, quis nostrud exercitation.
-										Curabitur non nulla sit amet nisl tempus
-										</p>
-										<div class="comment-reply">
-											<a class="comment-btn" href="#">
-											<i class="fas fa-reply"></i> Reply
-											</a>
-											<p class="recommend-btn">
-											<span>Recommend?</span>
-											<a href="#" class="like-btn">
-											<i class="far fa-thumbs-up"></i> Yes
-											</a>
-											<a href="#" class="dislike-btn">
-											<i class="far fa-thumbs-down"></i> No
-											</a>
-											</p>
-										</div>
-									</div>
-								</div>
+								</div>	
 							</li>
 						</ul>
 
@@ -143,10 +61,12 @@
 	<Loader :isLoading="isLoading"/>
 </template>
 <script>
-	import MenuComponent from '../../components/Layout/Menu'
+	import MenuComponent from '@/components/Layout/Menu'
 	import Sidebar from './Sidebar'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
+	import {getReviews} from '@/services/dashboardService'
+	import Auth from '@/models/Auth'
 
 	export default{
 		name:'Reviews',
@@ -154,9 +74,28 @@
 		data(){
 			return {
 				isLoading:true,
+				reviewData:[]
+			}
+		},
+		computed:{
+			
+			auth(){
+				
+				return  Auth.query().first();
+			},
+			token(){
+				
+				return this.auth.api_token;
+			},
+			assetPath(){
+				return process.env.VUE_APP_ASSET_URL
 			}
 		},
 		mounted(){
+
+			getReviews(this.token).then(res => {
+				this.reviewData = res.data
+			})
 			setTimeout(() => {
 				this.isLoading = false;
 			}, 1000);

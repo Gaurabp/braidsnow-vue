@@ -40,10 +40,10 @@
 										@change="onUploadPortfolio" 
 										accept="image/*">
 									</div>
-									<div v-if="loading" class="change-photo-btn" style="float: left; margin-left: 15px; background:#6a1b9a;">
+									<div v-if="loading" class="change-photo-btn" style="float: left; background:#6a1b9a;">
 										<img src="/assets/loader.gif" alt="" style="width: 17%;">
 									</div>
-									<div v-else class="change-photo-btn" style="float: left; margin-left: 15px; background:#6a1b9a;" @click="onsubmit">
+									<div v-else class="change-photo-btn" style="float: left; background:#6a1b9a;" @click="onsubmit">
 										<span><i class="fa fa-save"></i> Save</span>
 																				
 										
@@ -70,11 +70,7 @@
 					</div>
 					<div class="row row-grid" v-else>
 
-							<div class="col-md-6 col-lg-12 col-xl-12">
-								<div class="card widget-profile pat-widget-profile">
-									<img src="/assets/nodatafound.png" alt="Image" height="700">
-								</div>
-							</div>
+							<no-data-found/>
 						
 					</div>
 				</div>
@@ -94,10 +90,11 @@
 	import Auth from '@/models/Auth'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
+	import NoDataFound from '@/components/NoDataFound';
 
 	export default{
 		name:'Portfolio',
-		components:{MenuComponent,Sidebar,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,Loader,FooterComponent,NoDataFound},
 
 		data(){
 		return {
@@ -222,3 +219,34 @@
 
 	}
 </script>
+<style>
+.text-muted
+{
+	font-size: 15px;
+	margin-left: 15px;
+}
+.change-avatar .change-photo-btn 
+{
+	float: left;	
+	margin-left: 15px;
+}
+@media screen and (max-width: 575.98px)
+{
+	.change-photo-btn
+	{
+		font-size: 12px;
+	}
+	.change-avatar .change-photo-btn 
+	{
+    margin: 0 0 10px;
+    width: 100%;
+	margin-left: 0px;
+    
+	}
+	.text-muted
+	{
+		font-size: 10px;
+		margin-left: 0px;
+	}
+}
+</style>

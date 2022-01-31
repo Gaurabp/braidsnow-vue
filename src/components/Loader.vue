@@ -1,34 +1,40 @@
 <template>
-		<loading 
-		:active="isLoading" 
-        :can-cancel="false"
-        loader="bars"
-        opacity="1"
-        color="#f8ab03"
-        height="200"
-        width="200"
-        :lock-scroll="true"
-        background-color="white"
-        :is-full-page="fullPage"></loading>
+	<!-- <img src="assets\loader2.gif" alt=""> -->
+	<div tabindex="0" class="vld-overlay is-active is-full-page" aria-busy="true" aria-label="Loading" style="" v-if="isLoading">
+		<div class="vld-background" style="background: #000; opacity: 1; backdrop-filter: blur(2px);">
+		</div>
+		<div class="vld-icon">
+			<img src="assets\loader2.gif" class="img-fluid img-responsive"  style=" width: 100%;
+  height: auto;position: relative;">
+		</div>
+	</div>
 </template>
 
 <script>
-import Loading from 'vue-loading-overlay';
+//import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
-import { ref } from 'vue';
+//import { ref } from 'vue';
 
 export default {
 
-    setup() {
+  /*  setup() {
         //let isLoading = ref(true);
         const fullPage = ref(true);
 
         return {
            fullPage,
         }
-    },
-    components: {Loading},
+    },*/
+    //components: {Loading},
     props:{isLoading: Boolean}
 }
 </script>
+
+<style>
+	.vld-icon{margin-top:-15% ;}
+@media screen and (max-width: 575.98px)
+{
+	.vld-icon{margin-top:-95% ;}
+}
+</style>
 

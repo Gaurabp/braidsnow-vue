@@ -28,7 +28,7 @@
 								<div class="info-widget">
 
 									<h4 class="card-title">Personal Information</h4>
-									<center>
+									<center v-if="auth.name">
 										<a href="#!" class="booking-pro-img">
 											
 											<img 
@@ -38,7 +38,7 @@
 											style="width: 10%;height: 10%;"/>
 										</a>
 									</center>
-									<div class="row">
+									<div class="row" v-if="auth.name">
 										<div class="col-md-12 col-sm-12">
 											<div class="form-group">
 												<label>Upload Image</label>
@@ -204,7 +204,8 @@
 									<div class="terms-accept">
 										<div class="custom-checkbox">
 											<input type="checkbox" id="terms_accept">&nbsp;
-											<label for="terms_accept">I have read and accept <a href="#">Terms &amp; Conditions</a></label> 
+											<label for="terms_accept">I have read and accept
+											<a href="#" @click="termAndCondition($event)">Terms &amp; Conditions</a></label> 
 										</div>
 									</div>
 
@@ -309,6 +310,34 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="termAndCondition" style="margin-top:6%;">
+		<div class="modal-dialog modal-lg" style="overflow-y: initial !important">
+			<div class="modal-content" style="height: 80vh; margin-bottom: 20%;">
+				<div class="modal-header">
+					<h5 class="modal-title" >Term & Conditions</h5>
+					
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" ref="closePaymentModal">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="overflow-y: auto;">
+					<p v-html="term.description"></p>
+					<br>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" @click="printDocument()">
+					<i class="fa fa-download"></i> Download
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a 
+	data-target="#termAndCondition" 
+	data-toggle="modal"
+	style="margin-top:8%" 
+	ref="openTermAndCondition"></a>
 	<footer-component/> 
 	<Loader :isLoading="preLoader"/>
 </template>
@@ -321,13 +350,18 @@
 	import Swal from 'sweetalert2'
 	import CheckoutInterface from '@/views/interfaces/checkout.js'
 	import Loader from '@/components/Loader';
-	import FooterComponent from '@/components/Layout/Footer'
+	import FooterComponent from '@/components/Layout/Footer';
+	import { getCms } from '@/services/cms';
+	import pdfMake from 'pdfmake';
+	import pdfFonts from 'pdfmake/build/vfs_fonts';
+	import htmlToPdfmake from 'html-to-pdfmake';
 
 	export default {
 		name:'Checkout',
 		components:{MenuComponent,Loader,FooterComponent},
 		data(){
 			return{
+				term:{},
 				errors:{},
 				isLoading:false,
 				publishableKey:'pk_test_51IXcw1JLOzBZfrz5t7Zajmsj43jQuyGzSiIULd5XjqCK8JYPX66yrVaNnoU6z95xrtDDRkE3K0ilNCNoSecwfFv000DCQ7SlEm',
@@ -405,13 +439,19 @@
 				return this.auth.address+', '+this.auth.city+', '+this.auth.state;
 			}
 		},
-		mounted(){
+		async mounted(){
 
 			//this.paymentMethod = this.auth.is_payment_online?1:2;
 
 			if (!localStorage.getItem('bookingDate')) {
 				this.$router.push({name:'Home'})
 			}
+
+			await getCms().then(async res =>{
+				this.term = (res.data.data.filter(cms => cms.id == 2))[0];
+			})
+			.catch(err => console.log(err))
+
 			setTimeout(() => {
 				this.preLoader = false;
 			}, 1000);
@@ -423,6 +463,17 @@
 			}
 		},
 		methods:{
+			printDocument() {
+				var html = htmlToPdfmake(this.term.description);
+				const documentDefinition = { content: html };
+				pdfMake.vfs = pdfFonts.pdfMake.vfs;
+				pdfMake.createPdf(documentDefinition).open();
+			},
+			termAndCondition(event){
+
+				event.preventDefault();
+				this.$refs.openTermAndCondition.click();
+			},
 			onlyNumber ($event) {
 				let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
 				if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { 
