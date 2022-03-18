@@ -46,7 +46,7 @@
 														@change="onUploadAvatar" 
 														accept="image/*">
 													</div>
-													<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+													<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 1MB</small>
 													<small v-if="errors.avatar" class="form-text text-danger">
 													{{errors.avatar}}
 												</small>
@@ -155,7 +155,6 @@
 	import Sidebar from '@/views/Customer/Sidebar'
 	import {profileUpdate} from '@/services/CustomerServices'
 	import Auth from '@/models/Auth'
-	import AssetsPath from '@/utils/AssetsPath'
 	import Swal from 'sweetalert2'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
@@ -183,7 +182,7 @@
 				return this.auth.api_token;
 			},
 			basePath(){
-				return AssetsPath;
+				return process.env.VUE_APP_ASSET_URL;
 			}
 		},
 		mounted(){
@@ -198,9 +197,9 @@
 				this.data.avatar = event.target.files[0];
 				let size = Math.round(this.data.avatar.size/1024);
 				
-				if (size > 500) {
+				if (size > 1024) {
 					event.preventDefault();
-					this.errors.avatar = 'File too big (> 500KB)';
+					this.errors.avatar = 'File too big (> 1MB)';
 					return;
 				}
 

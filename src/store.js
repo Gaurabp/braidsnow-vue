@@ -20,6 +20,7 @@ import Braider from '@/models/Braider'
 import UserScheduleTiming from '@/models/UserScheduleTiming'
 import Auth from '@/models/Auth'
 import AdvanceScheduleSetting from '@/models/AdvanceScheduleSetting'
+import Contact from '@/models/Contact'
  
 const database = new VuexORM.Database()
 
@@ -43,6 +44,7 @@ database.register(Braider)
 database.register(Auth)
 database.register(UserScheduleTiming)
 database.register(AdvanceScheduleSetting)
+database.register(Contact)
 
 export default createStore({
 	plugins: [VuexORM.install(database)]

@@ -1,61 +1,51 @@
 <template>
-	<footer class="footer">
-		<div class="footer-mail text-center">
+	<footer class="footer" style="margin-top: 0%;">
+		<div class="footer-mail text-center" style=" background: black;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 col-md-12">
+					<img src="assets/Hair1.jpg">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer-top">
+		<div class="footer-top" style="background: url(assets/HB5.jpg)  no-repeat; background-size: cover;">
 			<div class="container">
 				<div class="row">
 					
 					<div class="col-lg-3 col-md-6">
 						<div class="footer-widget footer-menu">
-							<h2 class="footer-title">Quick Links</h2>
+							<h2 class="footer-title">About BraidsNow.com</h2>
+							<p style="color: white;text-align: justify;font-size: 19px;margin-right: 50px;"><strong>BraidsNow.com</strong> is a resource for all things Braids and Black Hair.  We believe hairstyles are a work of art and should be appreciated as such.</p>
+						</div>
+					</div>
+					
+					<div class="col-lg-3 col-md-6">
+						<div class="footer-widget footer-menu">
+							<h2 class="footer-title">Useful Links</h2>
 							<ul>
 								<li>
 									<router-link :to="{name:'BraiderList'}">
-									Find A Stylish
+									Find A Stylist
 									</router-link>
 								</li>
 								<li v-if="!loginedUser">
 									<router-link :to="{name:'BusinessRegister'}">
 									Register My Business</router-link>
 								</li>
-								<li v-if="!loginedUser">
+								<li>
+								<p v-if="!loginedUser" style="color: #ffffff !important;">
 									<router-link :to="{name:'Login'}">
 									Login
 									</router-link>
-								</li>
-								<li v-if="loginedUser">
+								</p>
+								<p v-if="loginedUser" style="color: #ffffff !important;">
 									<router-link :to="{name: loginedUser?.role_id == 2 ?'BraiderDashboard':'Dashboard'}">Dashboard
 									</router-link>
-								</li>
-
-								<li><a href="">BraidsNow Blog</a></li>
-								
-							</ul>
-						</div>
-					</div>
-					
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-widget footer-menu">
-							<h2 class="footer-title">Useful links</h2>
-							<ul>
-								<li>
-									<router-link :to="{name:'PrivacyPolicy'}">
-										Privacy Policy
-									</router-link>
+								</p>
 								</li>
 								<li>
-									<router-link :to="{name:'TermAndCondition'}">Term & Condition
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'RefundPolicy'}">Refuns Policy
+									<router-link :to="{name:'RefundPolicy'}">Refund Policy
 									</router-link>
 								</li>
 								<li>
@@ -70,11 +60,11 @@
 					</div>
 					<div class="col-lg-3 col-md-6">
 						<div class="footer-widget footer-contact">
-							<h2 class="footer-title">Get in touch</h2>
+							<h2 class="footer-title">Get In Touch</h2>
 							<div class="footer-contact-info">
-								<p> Ask us a Question </p>
-								<p>info@braidsnowdotcom.com</p>
-								<p class="mb-0">
+							
+								<p><a href="mailto:info@braidsnowdotcom.com" style="color: white;">info@braidsnowdotcom.com</a></p>
+							<p class="mb-0">
 									Connect with us
 								</p>
 								<div class="social-icon">
@@ -91,49 +81,31 @@
 
 					<div class="col-lg-3 col-md-6">
 						<div class="footer-widget footer-menu">
-							<h2 class="footer-title">Our Services</h2>
-							<ul>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Skincare & Facials
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Body Treatments
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Couples Treatments
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Cryoskin Therapy
-									</router-link>
-								</li>
-								<li>
-									<router-link :to="{name:'BraiderList'}">
-									Manicure & Pedicure
-									</router-link>
-								</li>
-							</ul>
+							<h2 class="footer-title" style="margin-bottom: 10px;">Newsletter</h2>
+							<h5 style="color:white;padding-bottom: 10px; font-size: 13px;font-weight: 200;">Sign up below to receive latest updates and news</h5>
+							<div class="input-group mb-3">
+<input type="email" v-model="email" class="form-control" placeholder="Your Email Address">
+<div class="input-group-append">
+<button class="btn btn-success" type="button" @click="newsletter()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+</div>
+</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="footer-bottom">
-			<div class="container-fluid">
+			<div class="container-fluid" style="background: black;">
 				<div class="copyright">
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="copyright-text text-center">
 								<p class="mb-0">
-									© 2021 BraidsNow. All Rights Reserved | 
-									<a class="text-white" href="">Terms and Conditions</a> - 
-									<a class="text-white" href="">Privacy Policy</a>
+									© {{ new Date().getFullYear() }}
+									<a href="BraidsNow.com">BraidsNow.com</a> | All Rights Reserved | 
+									<router-link :to="{name:'PrivacyPolicy'}">Privacy Policy</router-link> |
+                                    <router-link :to="{name:'TermAndCondition'}">Terms & Conditions
+									</router-link>
 								</p>
 							</div>
 						</div>
@@ -147,6 +119,11 @@
 	import Auth from '@/models/Auth'
 export default {
 	name: 'Footer',
+	data(){
+		return {
+			email:''
+		}
+	},
 	computed: {
 		routeName(){
 			return this.$route.name;

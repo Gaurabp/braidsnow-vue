@@ -19,7 +19,7 @@
 	<div class="content">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-12 col-xl-12">
+				<div class="col-md-12 col-lg-12 col-xl-12" style="color: white; text-shadow: 2px 2px 2px #000; font-size: 20px;">
 					<p v-html="term.description"></p>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 	<Loader :isLoading="isLoading"/>
 </template>
 <script>
-	import MenuComponent from '../components/Layout/Menu'
+	import MenuComponent from '@/components/Layout/Menu'
 	import { getCms } from '@/services/cms'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'

@@ -5,6 +5,7 @@ import store from "./store";
 import VueClipboard from 'vue-clipboard2'
 import VueHtmlToPaper from './plugins/VueHtmlToPaper'
 
+
 const app = createApp(App)
 .use(VueClipboard)
 .use(store)

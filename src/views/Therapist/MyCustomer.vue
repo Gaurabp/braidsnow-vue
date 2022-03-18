@@ -36,7 +36,8 @@
 													<h5><b>Customer ID :</b> P00{{ customers.id }}</h5>
 													<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ customers.address }}</h5>
 													<br>
-													<router-link :to="{name:'SendEmail'}" class="btn btn-primary" >Send Email</router-link>
+													<router-link :to="{name:'SendEmail',params:{id:customers.id}}" class="btn btn-primary" >Send Email</router-link>
+
 													
 												</div>
 											</div>
@@ -45,8 +46,10 @@
 									<div class="customer-info">
 										<ul>
 										<li>Phone <span>{{ customers.phone_number }}</span></li>
-									<!-- 	<li>Age <span>{{ getBirthdayYear(customers.dob) }}</span></li>
-										<li>Gender <span>{{ customers.gender }}</span></li> -->
+										<li>
+										<router-link :to="{name:'HairStyle',params:{id:customers.id}}"  >Hair Styles</router-link>
+										</li>
+										<!-- <li>Gender <span>{{ customers.gender }}</span></li> -->
 										</ul>
 									</div>
 								</div>
@@ -58,11 +61,7 @@
 					</div>
 					<div class="row row-grid" v-else>
 						<div class="row">
-							<div class="col-md-6 col-lg-12 col-xl-12">
-								<div class="card widget-profile pat-widget-profile">
-									<img src="/assets/nodatafound.png" alt="Image" height="700">
-								</div>
-							</div>
+							<no-data-found/>
 						</div>
 					</div>
 				</div>
@@ -82,10 +81,11 @@
 	import Auth from '@/models/Auth'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
+	import NoDataFound from '@/components/NoDataFound';
 
 	export default{
 		name:'MyCustomer',
-		components:{MenuComponent,Sidebar,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,Loader,FooterComponent,NoDataFound},
 
 		data(){
 		return {

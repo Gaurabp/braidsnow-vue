@@ -20,7 +20,8 @@
 	<div class="content">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-12 col-xl-12">
+				<div class="col-md-12 col-lg-12 col-xl-12" style="color: white;text-shadow: 2px 2px 2px #000;
+    font-size: 20px;">
 					<p v-html="refundPolicy.description"></p>
 				</div>
 			</div>

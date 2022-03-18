@@ -92,3 +92,34 @@ export const couponSet = async (token,data) => await axios(token).post(`coupon`,
 |-------------------------------------------------------------------------------
 */
 export const couponRemove = async (token,data) => await axios(token).post(`coupon/delete`,data);
+
+/*
+|-------------------------------------------------------------------------------
+| Chat
+|-------------------------------------------------------------------------------
+*/
+export const chatCreate = async (token,data) => await axios(token).post(`chat`,data);
+/*
+|-------------------------------------------------------------------------------
+| Chat history
+|-------------------------------------------------------------------------------
+*/
+export const chatHistory = async (token,data) => await axios(token).post(`chat-history`,data);
+/*
+|-------------------------------------------------------------------------------
+| Chat Contacts
+|-------------------------------------------------------------------------------
+*/
+export const chatContact = async (token,data) => await axios(token).post(`chat-contacts`,data);
+/*
+|-------------------------------------------------------------------------------
+| Customer Hair Style
+|-------------------------------------------------------------------------------
+*/
+export const hairStyle = async (token,data) => await axios(token).post(`customer/hair-style`,data);
+/*
+|-------------------------------------------------------------------------------
+| Customer Hair Style
+|-------------------------------------------------------------------------------
+*/
+export const getReviews = async (token) => await axios(token).get(`review`);

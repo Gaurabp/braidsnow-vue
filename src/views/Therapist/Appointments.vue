@@ -111,11 +111,7 @@
 					</div>
 					<div class="appointments" v-else>
 						<div class="row">
-							<div class="col-md-6 col-lg-12 col-xl-12">
-								<div class="card widget-profile pat-widget-profile">
-									<img src="/assets/nodatafound.png" alt="Image" height="700">
-								</div>
-							</div>
+							<no-data-found/>
 						</div>
 					</div>
 				</div>
@@ -253,10 +249,11 @@
 	import Swal from 'sweetalert2'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
+	import NoDataFound from '@/components/NoDataFound';
 
 	export default{
 		name:'Appointments',
-		components:{MenuComponent,Sidebar,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,Loader,FooterComponent,NoDataFound},
 		data(){
 
 			return {

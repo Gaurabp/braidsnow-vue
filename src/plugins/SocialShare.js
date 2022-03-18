@@ -13,4 +13,8 @@ export default class SocialShare {
 		return `https://api.whatsapp.com/send?text=@${title}%0D%0A${url}%0D%0A${description}`;
 	}
 
+	email(url,title,description = ""){
+		return `mailto:?subject=${title}&body=${url}%0D%0A${description}`
+	}
+
 }

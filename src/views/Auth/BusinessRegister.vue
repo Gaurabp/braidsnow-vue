@@ -1,13 +1,17 @@
 <template>
 	<MenuComponent/>
-	<div class="content">
+	<section class="" style="">
+	<img src="assets/stylers2.jpg" style="width: 100%;">	
+	<h2 style="background: rgb(255, 171, 0);margin-bottom: 0px;padding: 10px 10px 10px 10px;text-align: center;    font-weight: 500;">Join The BraidsNow.com Community</h2>
+	</section>
+	<div class="content" style="">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
-					<div class="account-content">
+					<div class="account-content" style="margin-bottom: 40px; padding: 10% 8% 10% 8%;">
 						<div class="row align-items-center justify-content-center">
 							
-							<div class="col-md-12 col-lg-10 login-right">
+							<div class="col-md-12 col-lg-10 login-right" style="box-shadow: none;">
 								<div class="login-header">
 									<h3>Braider Register 
 										<router-link :to="{name:'Register'}">Not a Braider?</router-link>
@@ -31,7 +35,7 @@
 													@change="onUploadAvatar" 
 													accept="image/*">
 												</div>
-												<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 500KB</small>
+												<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 1MB</small>
 												<small v-if="errors.avatar" class="form-text text-danger">
 													{{errors.avatar}}
 												</small>
@@ -58,12 +62,17 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>State <span class="text-danger">*</span></label>
-											<input 
+											<select v-model="data.state" class="form-control">
+												<option value="">Select State</option>
+												<option v-for="(userCountry_obj, userCountry) in userplaces"  :value="userCountry" :key="userCountry">{{userCountry}}</option>
+											</select>
+											<!-- <input 
 											type="text" 
 											class="form-control" 
 											v-model="data.state"
 											:class="{'is-invalid':errors.state}"
-											placeholder="Enter Your State">
+											@keypress="onlyTwoChar($event)"
+											placeholder="Enter Your State"> -->
 											<small v-if="errors.state" class="form-text text-danger">
 												{{errors.state}}
 											</small>
@@ -74,12 +83,16 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>City <span class="text-danger">*</span></label>
-											<input 
+											<!-- <input 
 											type="text" 
 											class="form-control"
 											v-model="data.city" 
 											:class="{'is-invalid':errors.city}"
-											placeholder="Enter Your City">
+											placeholder="Enter Your City"> -->
+											<select :disabled="userCountries.length == 0" v-model="data.city" class="form-control">
+												<option value="">Select a City</option>
+												<option v-for="(userCity_obj, userCity) in userCountries" :key="userCity">{{userCity}}</option>
+											</select>
 											<small v-if="errors.city" class="form-text text-danger">
 												{{errors.city}}
 											</small>
@@ -88,12 +101,16 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Zip Code <span class="text-danger">*</span></label>
-											<input 
+											<!-- <input 
 											type="text" 
 											class="form-control" 
 											v-model="data.zipcode"
 											:class="{'is-invalid':errors.zipcode}"
-											placeholder="Enter Your Zip Code">
+											placeholder="Enter Your Zip Code"> -->
+											<select :disabled="userCities.length == 0" v-model="data.zipcode" class="form-control">
+												<option value="">Select a Zip</option>
+												<option v-for="userCity in userCities" :key="userCity">{{userCity}}</option>
+											</select>
 											<small v-if="errors.zipcode" class="form-text text-danger">
 												{{errors.zipcode}}
 											</small>
@@ -179,12 +196,12 @@
 								<div class="row form-row">
 									<div class="col-md-12">
 										<div class="form-group">
-											<label>Special Instruction for new clients <span class="text-danger">*</span></label>
+											<label>Special Instruction for New Clients <span class="text-danger">*</span></label>
 											<textarea 
 											class="form-control" 
 											v-model="data.special_introduction"
 											:class="{'is-invalid':errors.special_introduction}"
-											placeholder="Instruction"></textarea>
+											placeholder="Enter Your Special Instructions"></textarea>
 											<small v-if="errors.special_introduction" class="form-text text-danger">
 												{{errors.special_introduction}}
 											</small>
@@ -199,7 +216,7 @@
 											v-model="data.policy_procedure"
 											class="form-control" 
 											:class="{'is-invalid':errors.policy_procedure}"
-											placeholder="Enter Your policy_procedure/Procedure"></textarea>
+											placeholder="Enter Your Policy & Procedures"></textarea>
 											<small v-if="errors.policy_procedure" class="form-text text-danger">
 												{{errors.policy_procedure}}
 											</small>
@@ -239,7 +256,7 @@
 										</div>
 									</div>
 									<div class="col-md-4">
-										<label>Do you braid from home? <span class="text-danger">*</span></label>
+										<label>Do you style from home? <span class="text-danger">*</span></label>
 										<div class="form-group mb-0">
 											<div id="pricing_select">
 												<div class="custom-control custom-radio custom-control-inline">
@@ -265,7 +282,7 @@
 										</div>
 									</div>
 									<div class="col-md-4">
-										<label>Are you a mobile / traveling braider? <span class="text-danger">*</span></label>
+										<label>Are you a mobile and/or traveling braider? <span class="text-danger">*</span></label>
 										<div class="form-group mb-0">
 											<div id="pricing_select">
 												<div class="custom-control custom-radio custom-control-inline">
@@ -296,7 +313,7 @@
 								<br>
 								<div class="row form-row">
 									
-									<div class="col-md-3">
+									<div class="col-md-4">
 										<label>Can you provide hair? <span class="text-danger">*</span></label>
 										<div class="form-group mb-0">
 											<div id="pricing_select">
@@ -324,7 +341,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4">
 										<label>Do you wash hair? <span class="text-danger">*</span></label>
 										<div class="form-group mb-0">
 											<div id="pricing_select">
@@ -352,8 +369,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
-										<label>Mens Braids? <span class="text-danger">*</span></label>
+									<div class="col-md-4">
+										<label>Men's Braids? <span class="text-danger">*</span></label>
 										<div class="form-group mb-0">
 											<div id="pricing_select">
 												<div class="custom-control custom-radio custom-control-inline">
@@ -380,8 +397,10 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
-										<label>Kids Braids? <span class="text-danger">*</span></label>
+								</div><br>
+								<div class="row form-row">
+									<div class="col-md-4">
+										<label>Kid's Braids? <span class="text-danger">*</span></label>
 										<div class="form-group mb-0">
 											<div id="pricing_select">
 												<div class="custom-control custom-radio custom-control-inline">
@@ -565,13 +584,13 @@
 								<div class="row form-row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Booking Deposit amount <span class="text-danger">*</span></label>
+											<label>Booking Deposit Amount <span class="text-danger">*</span></label>
 											<input 
 											type="text" 
 											v-model="data.booking_deposit_amount"
 											class="form-control" 
 											:class="{'is-invalid':errors.booking_deposit_amount}"
-											placeholder="Booking Deposit amount">
+											placeholder="Booking Deposit Amount">
 											<small v-if="errors.booking_deposit_amount" class="form-text text-danger">
 												{{errors.booking_deposit_amount}}
 											</small>
@@ -584,10 +603,11 @@
 											type="text" 
 											v-model="data.couponCode"
 											class="form-control" 
-											:class="{'is-invalid':errors.couponCode}"
+											:class="{'is-invalid':couponError,'is-valid':isCouponApplied}"
+											
 											placeholder="Coupon Code">
-											<small v-if="errors.couponCode" class="form-text text-danger">
-												{{errors.couponCode}}
+											<small v-if="couponError" class="form-text text-danger">
+												{{couponError}}
 											</small>
 										</div>
 									</div>
@@ -622,7 +642,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="payment-widget" >
+								<div class="payment-widget" v-if="isCouponApplied === false ">
 
 									<h4 class="card-title">Subcribe A Plan</h4>
 
@@ -697,13 +717,13 @@
 									<div class="terms-accept">
 										<div class="custom-checkbox">
 											<input type="checkbox" id="terms_accept">&nbsp;
-											<label for="terms_accept">By clicking "Submit Payment" I agree to Braidsnow's <a href="#">Terms &amp; Conditions</a></label> 
+											<label for="terms_accept">By clicking "Submit Payment" I agree to Braidsnow's <a href="#" @click="termAndCondition($event)">Terms &amp; Conditions</a></label> 
 											<label for="terms_accept1"><strong>Note: </strong>
 												After your 30-day trial,your card will be charged $19.99/Month to use the BraidsNow Platform
 											</label> 
 										</div>
 									</div>
-									<div class="submit-section mt-4" v-if="isLoading == true">
+									<div class="submit-section mt-4" v-if="isLoading">
 										<button class="btn btn-primary submit-btn" type="button" >
 											<div class="loader">
 												Loading
@@ -714,21 +734,42 @@
 
 										</button>	
 									</div>
-									<div class="submit-section mt-4" v-if="isLoading == false">
+									<div class="submit-section mt-4" v-else>
 										<button class="btn btn-primary submit-btn" type="button" @click="onsubmit">
-											Save Changes and Subscribe
+											Subscribe
 
 										</button>	
 									</div>
 								</div>
-								<!-- <div class="submit-section submit-btn-bottom">
-									<button 
-									type="button" 
-									@click="onsubmit" 
-									class="btn btn-primary submit-btn">
-										Save Changes
-									</button>
-								</div> -->
+								<!-- else Condition -->
+								<div class="payment-widget" v-if="isCouponApplied === true ">
+
+
+
+									<div class="terms-accept">
+										<div class="custom-checkbox">
+											<input type="checkbox" id="terms_accept">&nbsp;
+											<label for="terms_accept">By clicking "Submit Payment" I agree to Braidsnow's <a href="#" @click="termAndCondition($event)">Terms &amp; Conditions</a></label> 
+										</div>
+									</div>
+									<div class="submit-section mt-4" v-if="isLoading">
+										<button class="btn btn-primary submit-btn" type="button" >
+											<div class="loader">
+												Loading
+												<span class="dot dot-1"></span>
+												<span class="dot dot-2"></span>
+												<span class="dot dot-3"></span>
+											</div>
+
+										</button>	
+									</div>
+									<div class="submit-section mt-4" v-else>
+										<button class="btn btn-primary submit-btn" type="button" @click="onsubmit">
+											Subscribe
+
+										</button>	
+									</div>
+								</div>
 								
 							</div>
 						</div>
@@ -737,7 +778,34 @@
 			</div>
 		</div>
 	</div>
-<footer-component/> 
+	<div class="modal fade" id="termAndCondition" style="margin-top:6%;">
+		<div class="modal-dialog modal-lg" style="overflow-y: initial !important">
+			<div class="modal-content" style="height: 80vh; margin-bottom: 20%;">
+				<div class="modal-header">
+					<h5 class="modal-title" >Term & Conditions</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" ref="closePaymentModal">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="overflow-y: auto;">
+					<p v-html="term.description"></p>
+					<br>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" @click="printDocument()">
+					<i class="fa fa-download"></i> Download
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a 
+	data-target="#termAndCondition" 
+	data-toggle="modal"
+	style="margin-top:8%" 
+	ref="openTermAndCondition"></a>
+<!-- <footer-component/>  -->
 <Loader :isLoading="preLoader"/>
 </template>
 <script>
@@ -747,13 +815,31 @@
 	import Swal from 'sweetalert2'
 	import Auth from '@/models/Auth'
 	import Loader from '@/components/Loader';
-	import FooterComponent from '@/components/Layout/Footer'
+	// import FooterComponent from '@/components/Layout/Footer';
+	import { getCms } from '@/services/cms';
+	import pdfMake from 'pdfmake';
+	import pdfFonts from 'pdfmake/build/vfs_fonts';
+	import htmlToPdfmake from 'html-to-pdfmake';
+	// import Address from '@/models/Braider'
 
 	export default {
 		name: 'BusinessRegister',
-		components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,Loader},
 		data(){
 			return {
+				userplaces: {
+					"Alaska": {
+						"Abbeville": ["36310"],
+						"Birmingham": ["35203", "35204", "35205", "35206"],
+					},
+					"Alabama": {
+						"Adona": ["72001"],
+						"North Little Roc": ["72114", "72117", "72120"],
+					}
+				},
+			userCountries: [],
+            userCities: [],
+				term:{},
 				preLoader:true,
 				services: [],
 				serviceList:[],
@@ -779,7 +865,10 @@
 					exp_month:false,
 					cvc:false
 				},
-				paymentMethod:1
+				paymentMethod:1,
+				buttonLoading:false,
+				isCouponApplied:false,
+				couponError:''
 			}
 		},
 		async mounted(){
@@ -790,17 +879,74 @@
 				console.log(err);
 			})
 
+			await getCms().then(async res =>{
+				this.term = (res.data.data.filter(cms => cms.id == 2))[0];
+			})
+			.catch(err => console.log(err))
+
+
 			setTimeout(() => {
 				this.preLoader = false;
 			}, 1000);
+
 		},
 		watch:{
 
 			cardNumber: function() {
 				this.cc_format();
+			},
+			"data.couponCode":{
+				handler(val){
+
+					if (val == 'BNLFMB') {
+						this.couponError = "";
+						this.isCouponApplied = true;
+					}else{
+						if (val == "") {
+							this.couponError = "";
+						}else{
+
+							this.couponError = "Invalid coupon";
+							this.isCouponApplied = false;
+						}
+					}
+					
+				},
+				deep: true
+			},
+			"data.state": function() {
+				// Clear previously selected values
+				this.userCountries = [];
+				this.userCities = [];
+				this.data.city = "";
+				this.data.zipcode = "";
+				// Populate list of userCountries in the second dropdown
+				if (this.data.state.length > 0) {
+					this.userCountries = this.userplaces[this.data.state]
+				}
+			},
+			"data.city": function() {
+				// Clear previously selected values
+				this.userCities = [];
+				this.data.zipcode= "";
+				// Now we have a continent and userCountry. Populate list of userCities in the third dropdown
+				if (this.data.city.length > 0) {
+					this.userCities = this.userplaces[this.data.state][this.data.city]
+				}
 			}
 		},
 		methods:{
+			printDocument() {
+				var html = htmlToPdfmake(this.term.description);
+				const documentDefinition = { content: html };
+				pdfMake.vfs = pdfFonts.pdfMake.vfs;
+				pdfMake.createPdf(documentDefinition).open();
+			},
+			termAndCondition(event){
+
+				event.preventDefault();
+				this.$refs.openTermAndCondition.click();
+			},
 			async onSubmit(){
 				
 				this.isLoading = true;
@@ -817,9 +963,8 @@
 						exp_year: this.cardExpiryYear
 					}, async (status,response) => {
 						if (status === 200) {
-							braiderRegister({stripeToken:response.id}).then(res => {
-								console.log(res);
-							})
+							await braiderRegister({stripeToken:response.id})
+							this.isLoading = false;
 							//await this.withPayment();
 						}else{
 							
@@ -837,14 +982,13 @@
 									this.cardErrors.exp_month = response.error.message;
 									break;
 							}
+
 						}
 					});
 				}else{
 					await this.withoutPayment();
+					this.isLoading = false;
 				}
-
-
-				this.isLoading = false;
 				
 			},
 			cardValidation(){
@@ -880,6 +1024,7 @@
 					}else{
 						this.cardErrors.cvc = false;
 					}
+					
 					return flag;
 				}
 			},
@@ -941,9 +1086,9 @@
 				this.data.avatar = event.target.files[0];
 				let size = Math.round(this.data.avatar.size/1024);
 				
-				if (size > 500) {
+				if (size > 1024) {
 					event.preventDefault();
-					this.errors.avatar = 'File too big (> 500KB)';
+					this.errors.avatar = 'File too big (> 1MB)';
 					return;
 				}
 
@@ -982,6 +1127,7 @@
 				formData.set('cvc',this.cardCvc);
 				formData.set('men_braids',this.menBraids);
 				formData.set('kids_braids',this.kidsBraids);
+				formData.set('isCouponApplied',this.isCouponApplied);
 				
 				return formData;
 			},
@@ -1002,7 +1148,7 @@
 					}, async (status,response) => {
 						if (status === 200) {
 							
-							braiderRegister(this.serializeFormData())
+							await braiderRegister(this.serializeFormData())
 							.then(async res => {
 								await Auth.insert({data: res.data.user});
 								await localStorage.setItem('api_token',res.data.token);
@@ -1016,6 +1162,7 @@
 									behavior: 'smooth'
 								});
 							});
+							this.isLoading = false;
 						}else{
 							
 							switch (response.error.param) {
@@ -1032,11 +1179,37 @@
 									this.cardErrors.exp_month = response.error.message;
 									break;
 							}
+							this.isLoading = false;
 						}
+					});
+				}else{
+					this.isLoading = false;
+				}
+
+				if (this.isCouponApplied === true) {
+					await braiderRegister(this.serializeFormData())
+					.then(async res => {
+						await Auth.insert({data: res.data.user});
+						await localStorage.setItem('api_token',res.data.token);
+							this.$router.push({name:'BraiderDashboard'});
+						})
+					.catch(err => {
+						Object.keys(err?.response?.data?.errors).map(name => {
+							this.errors[name] = err?.response?.data?.errors[name][0];
+						});
+						window.scrollTo({
+							top:0,
+							behavior: 'smooth'
+						});
 					});
 				}
 
-				this.isLoading = false;
+			},
+			onlyTwoChar(event){
+
+				if (this.data.state.length >= 2) {
+					event.preventDefault();
+				}
 			},
 			clear(){
 
@@ -1078,50 +1251,12 @@
 		}
 	}
 </script>
-<style>
-	.loader>span {
-  width: 5px;
-  height: 5px;
-  display: block;
-  background: #fff;
-  border-radius: 50%;
-  position: relative;
-  margin: 0 5px;
-}
-
-.loader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dot-1 {
-  animation: anim 1s linear 0s infinite;
-}
-
-.dot-2 {
-  animation: anim 1s linear 0.25s infinite;
-}
-
-.dot-3 {
-  animation: anim 1s linear 0.50s infinite;
-}
-
-.dot-4 {
-  animation: anim 1s linear 0.75s infinite;
-}
-
-@keyframes anim {
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 15px;
-  }
-
-  100% {
-    top: 0;
-  }
+<style scoped>
+.home-banner2 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+    position: relative;
 }
 </style>

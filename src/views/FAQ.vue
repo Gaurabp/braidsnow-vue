@@ -21,7 +21,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-12 col-xl-12">
-					<h2 class="headd">Please review the answers to Frequently Asked Questions listed below. If you still need additional information please email braidsnowdotcom@gmail.com. Thank you.</h2>
+					<h2 class="headd" style="text-shadow: 4px 4px 8px #000;">Please review the answers to Frequently Asked Questions listed below. If you still need additional information please email braidsnowdotcom@gmail.com. Thank you.</h2>
 					<div class="accordion_one">
 						<div class="panel-group">
 							<div class="panel panel-default" v-for="faq in faq" :key="faq.id">
@@ -145,7 +145,7 @@
 	<Loader :isLoading="isLoading"/>
 </template>
 <script>
-	import MenuComponent from '../components/Layout/Menu'
+	import MenuComponent from '@/components/Layout/Menu'
 	import { faq } from '@/services/faq'
 	import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'

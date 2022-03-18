@@ -29,9 +29,14 @@
 							</div>
 
 							<div class="pro-info-cont">
-								<h4 class="pro-name">{{profileData.name}}  <svg width="24" height="24" @click="shareProfile(profileData)" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 16V5.41421L16.2929 8.70711L17.7071 7.29289L12 1.58578L6.29289 7.29289L7.70711 8.70711L11 5.41421V16H13ZM21 20V11H19V20H5V11H3V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20Z" fill="#121111"></path></svg></h4>
+								<h4 class="pro-name">{{profileData.name}} <i 
+										style="color:#6b04a9"
+										class="fa fa-share-alt" 
+										@click="shareProfile(profileData)"
+										aria-hidden="true"></i> </h4>
+								
 
-								<div class="rating">
+								<div class="rating" v-if="profileData">
 									<i class="fas fa-star filled" v-for="i in profileData.ratting" :key="i"></i>
 									
 									<i class="fas fa-star" v-for="j in (5 - profileData.ratting)" :key="j"></i>
@@ -74,30 +79,30 @@
 						<div class="pro-info-right">
 							<div class="provider-action">
 								<a :href="profileData?.social_media?.facebook_url" target="_blank" class="btn btn-white fav-btn">
-								<i class="fab fa-facebook-f"></i>
+								<i class="fab fa-facebook-f" style="color:#6b04a9"></i>
 								</a>
 								<a :href="profileData?.social_media?.twitter_url" target="_blank" class="btn btn-white fav-btn">
-								<i class="fab fa-twitter"></i>
+								<i class="fab fa-twitter" style="color:#6b04a9"></i>
 								</a>
 								<a :href="profileData?.social_media?.instagram_url" target="_blank" class="btn btn-white fav-btn">
-								<i class="fab fa-instagram"></i>
+								<i class="fab fa-instagram" style="color:#6b04a9"></i>
 								</a>
 								<a :href="profileData?.social_media?.youtube_url" target="_blank" class="btn btn-white fav-btn">
-								<i class="fab fa-youtube"></i>
+								<i class="fab fa-youtube" style="color:#6b04a9"></i>
 								</a>
 							</div>
 							<div class="provider-action">
 								<a href="javascript:void(0)" class="btn btn-white fav-btn" @click="addFav(profileData.id)">
-								<i class="far fa-bookmark"></i>
+								<i class="far fa-bookmark" style="color:#6b04a9"></i>
 								</a>
 								<a :href="profileData.website_link" target="_blank" class="btn btn-white msg-btn">
-								<i class="fas fa-globe"></i>
+								<i class="fas fa-globe" style="color:#6b04a9"></i>
 								</a>
 								<a :href="'tel:+1 '+profileData.business_phone_number" class="btn btn-white call-btn">
-								<i class="fas fa-phone"></i>
+								<i class="fas fa-phone" style="color:#6b04a9"></i>
 								</a>
 								<a :href="'mailto: '+profileData.email" class="btn btn-white call-btn">
-								<i class="fas fa-envelope"></i>
+								<i class="fas fa-envelope" style="color:#6b04a9"></i>
 								</a>
 							</div>
 							<div class="clini-infos">
@@ -393,6 +398,19 @@
 					<div class="row">
 						<div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
 							<div 
+							@click="shareEmail()"
+							style="background-color: #6b04a9;
+							height: 30px;
+							line-height: 2;
+							width: 100%;
+							text-align: center;
+							color: white;
+							"> Email</div>
+						</div>
+					</div> <hr>
+					<div class="row">
+						<div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
+							<div 
 							@click="shareWhatsapp()"
 							style="background-color: #2e9688;
 							height: 30px;
@@ -409,26 +427,25 @@
 	</div>
 	<a data-target="#paymentModal" data-toggle="modal" ref="openPaymentModal"></a>
 	</div>
-	<footer-component/>
+	<!-- <footer-component/> -->
 	<Loader :isLoading="isLoading"/>
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
 	import {braiderProfile} from '@/services/websiteServices'
 	import {ReviweStore} from '@/services/CustomerServices'
-	import AssetsPath from '@/utils/AssetsPath'
 	import moment from 'moment'
 	import Auth from '@/models/Auth'
 	import Swal from 'sweetalert2'
 	import {favouriteStore} from '@/services/CustomerServices'
 	import Loader from '@/components/Loader';
-	import FooterComponent from '@/components/Layout/Footer'
+	// import FooterComponent from '@/components/Layout/Footer'
 	import Social from '@/plugins/SocialShare'
-	import BaseUrl from '@/utils/BaseUrl'
 
 	export default {
 		name:'Profile',
-		components:{MenuComponent,Loader,FooterComponent},
+		// components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,Loader},
 		data(){
 			return {
 				profileData:'',
@@ -444,10 +461,10 @@
 		},
 		computed:{
 			baseUrl(){
-				return BaseUrl;
+				return process.env.VUE_APP_BASE_URL;
 			},
 			basePath(){
-				return AssetsPath;
+				return process.env.VUE_APP_ASSET_URL;
 			},
 			today(){
 				return moment().format('DD MMM YYYY');
@@ -579,6 +596,14 @@
 				const social = new Social;
 
 				const url = social.whatsapp(link,'Braider Profile',);
+
+				window.open(url, '_blank');
+			},
+			shareEmail(){
+				let link = this.baseUrl+'profile/'+this.shareData.id;
+				const social = new Social;
+
+				const url = social.email(link,'Braider Profile',this.shareData.introduction);
 
 				window.open(url, '_blank');
 			}

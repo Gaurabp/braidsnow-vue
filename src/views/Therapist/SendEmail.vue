@@ -90,7 +90,7 @@
 				this.isDisabled = true;
 
 				sendEmail(this.token,{
-					email:'adityasingh@gmail.com',
+					id:this.$route.params.id,
 					message: this.textMessage
 				}).then(() => {
 					this.textMessage = "";

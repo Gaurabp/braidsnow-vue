@@ -1,0 +1,8 @@
+
+
+
+
+VUE_APP_BASE_URL="https://blmpdev.com/braidsnowAPI/public/"
+VUE_APP_ASSET_URL="https://blmpdev.com/braidsnowAPI/public/storage/"
+
+VUE_APP_WEBSITE_URL="https://blmpdev.com/breadsnowdev/"

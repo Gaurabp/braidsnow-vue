@@ -57,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-	<footer-component/> 
+	<!-- <footer-component/>  -->
 	<Loader :isLoading="isLoading"/>
 </template>
 <script>
@@ -67,11 +67,11 @@
 	import Auth from '@/models/Auth'
 	import Loader from '@/components/Loader';
 	import AssetsPath from '@/utils/AssetsPath';
-	import FooterComponent from '@/components/Layout/Footer'
+	// import FooterComponent from '@/components/Layout/Footer'
 
 	export default {
 		name:'Login',
-		components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,Loader},
 		data:() => {
 			return {
 				email:'',

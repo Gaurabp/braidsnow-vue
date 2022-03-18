@@ -41,7 +41,7 @@ export default class Braider extends Model {
 			total_likes: this.attr(10),
 			total_reviews: this.attr(10),
 			api_token: this.attr(''),
-			serviceLocation: this.attr('work_from_shop'),
+			serviceLocation: this.attr('select'),
 			created_at: this.attr(''),
 			updated_at: this.attr(''),
 			user_services: this.hasMany(UserService, 'user_id'),

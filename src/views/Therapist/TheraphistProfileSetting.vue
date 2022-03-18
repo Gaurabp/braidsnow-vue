@@ -44,7 +44,7 @@
 													@change="onUploadAvatar" 
 													accept="image/*">
 												</div>
-												<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 500KB</small>
+												<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 1MB</small>
 												<small v-if="errors.avatar" class="form-text text-danger">
 													{{errors.avatar}}
 												</small>
@@ -523,9 +523,9 @@
 				this.avatar = event.target.files[0];
 				let size = Math.round(this.avatar.size/1024);
 				
-				if (size > 500) {
+				if (size > 1024) {
 					event.preventDefault();
-					this.errors.avatar = 'File too big (> 500KB)';
+					this.errors.avatar = 'File too big (> 1MB)';
 					return;
 				}
 

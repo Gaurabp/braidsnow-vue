@@ -52,12 +52,12 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<select v-model="advanceSchedule.buffer_time" class="form-control">
-									<option value="15">fifteen minutes</option>
-									<option value="30">thirty minutes</option>
-									<option value="45">forty-five minutes</option>
-									<option value="60">one hour</option>
-									<option value="90">one and half hours</option>
-									<option value="120">two hours</option>
+									<option value="15">15 minutes</option>
+									<option value="30">30 minutes</option>
+									<option value="45">45 minutes</option>
+									<option value="60">1 hour</option>
+									<option value="90">1 hour 30 minutes</option>
+									<option value="120">2 hours</option>
 								</select>
 							</div>
 						</div>
