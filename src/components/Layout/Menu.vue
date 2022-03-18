@@ -149,8 +149,13 @@ export default {
 </script>
 <style>
 	.desktopLogo{
+<<<<<<< HEAD
 		height: auto;
 		width: 30%;
+=======
+		height: 130px;
+		width: 130px;
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 		margin-top:0px;
 	}
 	.login-desk{

@@ -9,7 +9,7 @@
 					<div class="profile-det-info">
 						<h3>{{auth.name}} </h3>
 						<div class="customer-details">
-							<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i>{{auth.city}}, {{auth.state}}, USA</h5>
+							<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i>{{auth.city}}, {{auth.state}}</h5>
 						</div>
 					</div>
 				</div>

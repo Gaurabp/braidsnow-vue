@@ -166,7 +166,11 @@
 <script>
 import MenuComponent from '@/components/Layout/Menu'
 import Loader from '@/components/Loader';
+<<<<<<< HEAD
 // import FooterComponent from '@/components/Layout/Footer'
+=======
+import FooterComponent from '@/components/Layout/Footer'
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 import {customerRegister} from '@/services/auth'
 import Auth from '@/models/Auth'
 	export default {

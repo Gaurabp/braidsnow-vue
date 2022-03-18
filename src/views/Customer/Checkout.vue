@@ -28,7 +28,11 @@
 								<div class="info-widget">
 
 									<h4 class="card-title">Personal Information</h4>
+<<<<<<< HEAD
 									<span v-if="auth.name">
+=======
+									<center v-if="auth.name">
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 										<a href="#!" class="booking-pro-img">
 											
 											<img 
@@ -37,7 +41,11 @@
 											:alt="auth?.name" 
 											style="width: 10%;height: 10%;"/>
 										</a>
+<<<<<<< HEAD
 									</span>
+=======
+									</center>
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 									<div class="row" v-if="auth.name">
 										<div class="col-md-12 col-sm-12">
 											<div class="form-group">
@@ -338,7 +346,11 @@
 	data-toggle="modal"
 	style="margin-top:8%" 
 	ref="openTermAndCondition"></a>
+<<<<<<< HEAD
 	<!-- <footer-component/>  -->
+=======
+	<footer-component/> 
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 	<Loader :isLoading="preLoader"/>
 </template>
 <script>
@@ -350,7 +362,11 @@
 	import Swal from 'sweetalert2'
 	import CheckoutInterface from '@/views/interfaces/checkout.js'
 	import Loader from '@/components/Loader';
+<<<<<<< HEAD
 	// import FooterComponent from '@/components/Layout/Footer';
+=======
+	import FooterComponent from '@/components/Layout/Footer';
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 	import { getCms } from '@/services/cms';
 	import pdfMake from 'pdfmake';
 	import pdfFonts from 'pdfmake/build/vfs_fonts';

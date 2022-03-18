@@ -8,32 +8,53 @@
 				<div class="col-lg-12 col-md-12 banner-text " style="">
 					<!-- <div class="banner-content"> -->
 					<!-- 	<img src="assets/img/logospa.png" class="img-fluid" alt="Dream spa"> -->
+<<<<<<< HEAD
 						<h1 style="color: white; font-family:'Nunito Sans' !important;font-size: 60px;
     font-weight: 100;">
 							{{ setting.sec1_title }}
 						</h1>
 						<p style="color: white; font-size: 30px;">{{ setting.sec1_subtitle }}</p>
+=======
+						<h1 style="color: white;font-family:Arial,sans-serif !important;">
+							{{ setting.sec1_title }}
+						</h1>
+						<p style="color: white">{{ setting.sec1_subtitle }}</p>
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 						<div class="row">
 							<div class="find_braider">
 							<ul>
 							<li>
 								<router-link 
+<<<<<<< HEAD
 								style="font-family: 'Nunito Sans';background: #feaa00;
 border-radius: 120px;font-weight: 600;font-size: 17px;text-transform: uppercase;
 padding: 10px 55px;color: #8109a6;"
+=======
+								style="font-size: 12px;"
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 						:to="{name:'BraiderList'}" 
 						class="btn btn-primary book-btn">Find A Braider</router-link>
 							</li>
 							<li>
 								<router-link 
+<<<<<<< HEAD
 								style="font-family: 'Nunito Sans';background: #feaa00;
 border-radius: 120px;font-weight: 600;font-size: 17px;text-transform: uppercase;
 padding: 10px 55px;color: #8109a6;"
+=======
+								style="font-size: 12px;"
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 						:to="{name:'BusinessRegister'}" 
 						class="btn btn-primary book-btn">Register My Business</router-link>
 							</li>
 							</ul>
 							</div>
+<<<<<<< HEAD
+=======
+						
+						
+						
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 						</div>
 					<!-- </div> -->
 				</div>
@@ -41,6 +62,7 @@ padding: 10px 55px;color: #8109a6;"
 		</div>
 	</section>
 
+<<<<<<< HEAD
 	<section class="about-two pt-5 pb-0" style=" padding-top: 0px !important;">
     <div class="container" style="padding-right: 0px; padding-left: 0px;">
       <div class="row" style="background:#ffffff;">
@@ -60,12 +82,36 @@ padding: 10px 55px;color: #8109a6;"
 		</div>
     <div class="col-md-6" >
       <img src="assets/whowe.jpg" class="we_are">
+=======
+	<section class="about-two pt-5 pb-0">
+    <div class="container">
+      <div class="row">
+		<div class="col-md-4">
+			<img src="assets/whowe.jpg" class="we_are">
+		</div>
+    <div class="col-md-8">
+      <h3> Who We Are</h3>
+<p class="about-two__text">BraidsNow.com is a resource for all things Braids and Black Hair. This site was built for talented stylists who are all about their business and delivering excellent service to their clients and for a community of people who take pride in their hair and in themselves. We believe hair styles are a work of art and should be appreciated as such.
+
+This platform is an appointment booking and marketing tool for braiders and other stylists who specialize in Black Hair. This is also a place for clients to find new stylists who meet their needs all across the USA. Its about time for us to have one place where we can conveniently find stylists who specilize in our unique hair texture. We will be promoting the site to people in search of the perfect braider/stylist in their area. We will also provide style ideas as well as blogs, news articles and other resources. We’re passionate about braids and Black Hair and are creating a strong network for those in search of a bomb stylist.
+
+We consider ourselves beauty service "match-makers" and unity is one of our core values. We bring people together to help them achieve their goals and become more successful and beautiful. Strengthening the black economy, doing our part to give back to the community, and closing the racial wealth gap are some of our top priorities. Our site will continuously add new functionality and resources for users so please stay rockin’ with us because there is definitely much more in store!</p>
+<div class="mt-5">
+	<a href="#" class="btn btn-primary book-btn" style="background: #7030a7;
+   
+    border-color: #7030a7;">Learn More</a>
+</div>
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
    </div> 
     
     </div>  
       </div>
      </section>
+<<<<<<< HEAD
 	<!-- <section class="section services" v-if="setting.is_visible_service_section">
+=======
+	<section class="section services" v-if="setting.is_visible_service_section">
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-md-7 mx-auto">
@@ -248,6 +294,71 @@ color: #7d00a4;"> </p>
 </div>
 </div>
 </div>
+<<<<<<< HEAD
+=======
+</section>
+<section class="about-two pt-5 pb-0">
+    <div class="container">
+      <div class="row">
+    <div class="col-md-4">
+      <img :src="assetsPath+whoWeData.image" class="we_are">
+    </div>  
+    <div class="col-md-8">
+      <h3> {{ whoWeData.title || "" }} </h3>
+<p class="about-two__text" v-html="whoWeData.description"> </p>
+<div class="mt-5">
+	<a href="#" class="btn btn-primary book-btn" style="background: #7030a7;   
+    border-color: #7030a7;">Learn More</a>
+</div>
+   </div>  
+    </div>  
+      </div>
+     </section>
+<!-- <section class="section experience">
+<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-12 col-xl-12">
+					<h2 class="headd">Please review the answers to Frequently Asked Questions listed below. If you still need additional information please email braidsnowdotcom@gmail.com. Thank you.</h2>
+					<div class="accordion_one">
+						<div class="panel-group">
+							<div class="panel panel-default" v-for="faq in faq" :key="faq.id">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" :href="'#abc'+faq.id" aria-expanded="false" class="collapsed"> {{ faq.question }}
+										</a>
+									</h4>
+								</div>
+								<div :id="'abc'+faq.id" class="panel-collapse collapse" aria-expanded="false" role="tablist" style="height: 0px;">
+									<div class="panel-body">
+										<div class="text-accordion">
+											<p> {{faq.answer}}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section> -->
+
+<!-- <section class="section treatments">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h3 style="color:#ffab00;font-size: 58px;padding-bottom: 0px;">Newsletter</h3>
+<h5 style="color:white;padding-bottom: 10px;">Sign up below to receive latest updates and news</h5>
+<div class="col-md-6 mx-auto">
+<div class="input-group mb-3">
+<input type="email" v-model="email" class="form-control" placeholder="Your Email Address">
+<div class="input-group-append">
+<button class="btn btn-success" type="button" @click="newsletter()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+</div>
+</div>
+</div>
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 </div>
 </div>
 </div>
@@ -302,6 +413,10 @@ color: #7d00a4;"> </p>
 </div>
 </div>
 </section> -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 <footer-component/> 
 <Loader :isLoading="isLoading"/>
 </template>
@@ -379,6 +494,152 @@ export default {
 	}
 }
 </script>
+<style scoped>
+	.accordion_one .panel-group {
+    border: 1px solid #f1f1f1;
+    margin: 40px;
+}
+.headd{
+	font-size: 20px;
+	text-align: center;
+	color:#ffab00 ;
+}
+a:link {
+    text-decoration: none
+}
+
+.accordion_one .panel {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 0px solid transparent;
+    border-radius: 0;
+    margin: 0
+}
+
+.accordion_one .panel-default {
+    border: 0
+}
+
+.accordion-wrap .panel-heading {
+    padding: 0px;
+    border-radius: 0px
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 24px
+}
+
+.accordion_one .panel .panel-heading a.collapsed {
+    color: #000;
+    display: block;
+    padding: 12px 30px;
+    border-top: 0px
+}
+
+.accordion_one .panel .panel-heading a {
+    display: block;
+    padding: 12px 30px;
+    background: #fff;
+    color: #ffab00;
+    border-bottom: 1px solid #f1f1f1
+}
+
+.accordion-wrap .panel .panel-heading a {
+    font-size: 14px
+}
+
+.accordion_one .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: 0;
+    padding-top: 0;
+    padding: 25px 30px 30px 35px;
+    background: #fff;
+    color: #999999;
+}
+
+.img-accordion {
+    width: 81px;
+    float: left;
+    margin-right: 15px;
+    display: block
+}
+
+.accordion_one .panel .panel-heading a.collapsed:after {
+    content: "\2b";
+    color: #999999;
+    background: #f1f1f1
+}
+
+.accordion_one .panel .panel-heading a:after,
+.accordion_one .panel .panel-heading a.collapsed:after {
+    font-family: 'FontAwesome';
+    font-size: 15px;
+    width: 36px;
+    line-height: 48px;
+    text-align: center;
+    background: #F1F1F1;
+    float: left;
+    margin-left: -31px;
+    margin-top: -12px;
+    margin-right: 15px
+}
+
+.accordion_one .panel .panel-heading a:after {
+    content: "\2212"
+}
+
+.accordion_one .panel .panel-heading a:after,
+.accordion_one .panel .panel-heading a.collapsed:after {
+    font-family: 'FontAwesome';
+    font-size: 15px;
+    width: 36px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: #F1F1F1;
+    float: left;
+    margin-left: -31px;
+    margin-top: -12px;
+    margin-right: 15px
+}
+img.we_are{
+	width:100%;
+}
+.banner-text{
+	text-align:center; 
+	padding-top: 18%;
+}
+.find_braider{margin: auto;}
+
+.find_braider ul li{
+	list-style: none;
+	float: left;
+	margin-left: 10px;
+}
+
+@media screen and (max-width: 575.98px)
+{
+	
+	.banner-text h1{
+		font-size: 30px;
+	}
+	.find_braider ul{padding-left: 0px;}
+	.find_braider ul li{width: 100%;
+    margin: auto;
+		float: none;
+		margin-top:10px;
+		margin-left: 0px;
+		
+	}
+
+	img.we_are{
+
+		padding-left: 0;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+</style>
 
 <style scoped>
 	.accordion_one .panel-group {

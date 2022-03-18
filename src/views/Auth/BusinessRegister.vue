@@ -1,10 +1,16 @@
 <template>
 	<MenuComponent/>
+<<<<<<< HEAD
 	<section class="" style="">
 	<img src="assets/stylers2.jpg" style="width: 100%;">	
 	<h2 style="background: rgb(255, 171, 0);margin-bottom: 0px;padding: 10px 10px 10px 10px;text-align: center;    font-weight: 500;">Join The BraidsNow.com Community</h2>
 	</section>
 	<div class="content" style="">
+=======
+	<section class="section home-banner2 row-middle" style="background-image: url('assets/register.png');">
+	</section>
+	<div class="content">
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
@@ -72,7 +78,11 @@
 											v-model="data.state"
 											:class="{'is-invalid':errors.state}"
 											@keypress="onlyTwoChar($event)"
+<<<<<<< HEAD
 											placeholder="Enter Your State"> -->
+=======
+											placeholder="Enter Your State">
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 											<small v-if="errors.state" class="form-text text-danger">
 												{{errors.state}}
 											</small>
@@ -314,7 +324,11 @@
 								<div class="row form-row">
 									
 									<div class="col-md-4">
+<<<<<<< HEAD
 										<label>Can you provide hair? <span class="text-danger">*</span></label>
+=======
+										<label>Can you provide hairs? <span class="text-danger">*</span></label>
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 										<div class="form-group mb-0">
 											<div id="pricing_select">
 												<div class="custom-control custom-radio custom-control-inline">
@@ -805,7 +819,11 @@
 	data-toggle="modal"
 	style="margin-top:8%" 
 	ref="openTermAndCondition"></a>
+<<<<<<< HEAD
 <!-- <footer-component/>  -->
+=======
+<footer-component/> 
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 <Loader :isLoading="preLoader"/>
 </template>
 <script>
@@ -815,18 +833,26 @@
 	import Swal from 'sweetalert2'
 	import Auth from '@/models/Auth'
 	import Loader from '@/components/Loader';
+<<<<<<< HEAD
 	// import FooterComponent from '@/components/Layout/Footer';
+=======
+	import FooterComponent from '@/components/Layout/Footer';
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 	import { getCms } from '@/services/cms';
 	import pdfMake from 'pdfmake';
 	import pdfFonts from 'pdfmake/build/vfs_fonts';
 	import htmlToPdfmake from 'html-to-pdfmake';
+<<<<<<< HEAD
 	// import Address from '@/models/Braider'
+=======
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 
 	export default {
 		name: 'BusinessRegister',
 		components:{MenuComponent,Loader},
 		data(){
 			return {
+<<<<<<< HEAD
 				userplaces: {
 					"Alaska": {
 						"Abbeville": ["36310"],
@@ -839,6 +865,8 @@
 				},
 			userCountries: [],
             userCities: [],
+=======
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 				term:{},
 				preLoader:true,
 				services: [],
@@ -913,6 +941,7 @@
 					
 				},
 				deep: true
+<<<<<<< HEAD
 			},
 			"data.state": function() {
 				// Clear previously selected values
@@ -933,6 +962,8 @@
 				if (this.data.city.length > 0) {
 					this.userCities = this.userplaces[this.data.state][this.data.city]
 				}
+=======
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 			}
 		},
 		methods:{

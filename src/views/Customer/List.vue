@@ -4,14 +4,25 @@
 		<div class="container-fluid">
 			<div class="row align-items-center">
 				<div class="col-md-8 col-12">
+<<<<<<< HEAD
 					<!--<nav aria-label="breadcrumb" class="page-breadcrumb">
+=======
+					<nav aria-label="breadcrumb" class="page-breadcrumb">
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 						<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="">Home</a></li>
 						<li class="breadcrumb-item active" aria-current="page">Find a Styler</li>
 						</ol>
+<<<<<<< HEAD
 					</nav>-->
 					<!--<h2 class="breadcrumb-title">Find a Styler</h2>-->
 				</div>
+=======
+					</nav>
+					<h2 class="breadcrumb-title">Find a Styler</h2>
+				</div>
+				
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 			</div>
 		</div>
 	</div>
@@ -214,14 +225,26 @@
 										</a>
 									</h5>
 
+									<h5 class="pro-department" style="margin-top:10px">
+										<a @click="copyText($event,braider.id)" href="#!"  >
+											Click here to copy
+										</a>
+									</h5>
+
 								</div>
 
 								<div class="pro-info-cont">
 
 									<h4 class="pro-name">
+<<<<<<< HEAD
 										<router-link :to="{name:'Profile',params:{id:braider.id}}">
 											{{braider.name}}
 										</router-link>{{" "}}
+=======
+										<route-link :to="{name:'Profile',params:{id:braider.id}}">
+											{{braider.name}}
+										</route-link>{{" "}}
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 											<a href="javascript:void(0)" @click="addFav(braider.id)" class="fav-btn">
 												<i class="fa fa-heart" style="color:#6b04a9"></i>
 											</a>{{" "}}
@@ -251,7 +274,11 @@
 									<div class="clinic-details">
 										<p class="pro-location">
 											<i class="fas fa-map-marker-alt"></i> 
+<<<<<<< HEAD
 											{{braider.city}}, {{braider.state}} {{braider.country || 'USA'}}
+=======
+											{{braider.city}},{{braider.state}},{{braider.country}}
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 										</p>
 
 										<ul class="clinic-gallery">
@@ -391,7 +418,11 @@ import Auth from '@/models/Auth'
 import Social from '@/plugins/SocialShare'
 import Multiselect from '@vueform/multiselect'
 import Loader from '@/components/Loader';
+<<<<<<< HEAD
 // import FooterComponent from '@/components/Layout/Footer'
+=======
+import FooterComponent from '@/components/Layout/Footer'
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 import swal from 'sweetalert2';
 
 	export default {
