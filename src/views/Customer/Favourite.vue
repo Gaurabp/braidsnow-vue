@@ -57,7 +57,7 @@
 									
 									<ul class="available-info">
 										<li>
-										<i class="fas fa-map-marker-alt"></i>{{fav.braider.city}},{{fav.braider.state}},{{fav.braider.country || 'USA'}}
+										<i class="fas fa-map-marker-alt"></i>{{fav.braider.city}},{{fav.braider.state}},{{fav.braider.country}}
 										</li>
 										<!-- <li>
 										<i class="far fa-clock"></i> Available on Fri, 22 Mar

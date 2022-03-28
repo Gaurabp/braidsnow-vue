@@ -171,6 +171,8 @@ import MenuComponent from '@/components/Layout/Menu'
 // import Loader from '@/components/Loader';
 // import FooterComponent from '@/components/Layout/Footer'
 import CopyRightsComponent from '@/components/Layout/CopyRights'
+// import Loader from '@/components/Loader';
+// import FooterComponent from '@/components/Layout/Footer'
 import {customerRegister} from '@/services/auth'
 import Auth from '@/models/Auth'
 	export default {

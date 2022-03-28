@@ -47,7 +47,7 @@
 								</div>
 								<div class="clinic-details">
 									<p class="pro-location">
-										<i class="fas fa-map-marker-alt"></i> {{profileData.city}},{{profileData.state}}, USA 
+										<i class="fas fa-map-marker-alt"></i> {{profileData.city}},{{profileData.state}}
 									</p>
 
 									<ul class="clinic-gallery">
@@ -63,9 +63,9 @@
 								<ul class="clearfix">
 									
 									<li v-if="profileData.do_you_braid_out_of_a_shop">Braid Out Of A Shop </li>
-									<li v-if="profileData.do_you_braid_from_home">Braid From Home </li>
-									<li v-if="profileData.are_you_a_mobile">Mobile</li>
-									<li v-if="profileData.can_you_provide_hair">Provide Hair</li>
+									<li v-if="profileData.do_you_braid_from_home">Styles From Home </li>
+									<li v-if="profileData.are_you_a_mobile">Traveling Stylist</li>
+									<li v-if="profileData.can_you_provide_hair">Provides Hair</li>
 									<li v-if="profileData.men_braids">Men Braids </li>
 									<li v-if="profileData.kids_braids">Kids Braids</li>
 								</ul>
@@ -114,14 +114,14 @@
 										<div class="col-12 col-sm-12 col-md-12">
 											<select class="form-control" v-model="serviceLocation">
 												<option value="work_from_shop"
-												>Work from shop</option>
+												>Styles In Shop</option>
 												<option 
 												value="work_from_home"
 												v-if="profileData.do_you_braid_from_home"
-												>Work from home</option>
+												>Washes Hair</option>
 												<option value="mobile"
 												v-if="profileData.are_you_a_mobile"
-												>Mobile/Travling</option>
+												>Mobile/Traveling</option>
 											</select>
 										</div>
 									</li>

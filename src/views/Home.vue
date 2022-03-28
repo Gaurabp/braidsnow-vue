@@ -8,6 +8,12 @@
 							{{ setting.sec1_title }}
 						</h1>
 						<p style="color: white; font-size: 30px;">{{ setting.sec1_subtitle }}</p>
+
+						<h1 style="color: white;font-family:Arial,sans-serif !important;">
+							{{ setting.sec1_title }}
+						</h1>
+						<p style="color: white">{{ setting.sec1_subtitle }}</p>
+>>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 						<div class="row">
 							<div class="find_braider">
 							<ul>
@@ -33,6 +39,7 @@ padding: 10px 55px;color: #8109a6;"
 					</div>
 	</section>
 
+
 	<section class="about-two pt-5 pb-0" style=" padding-top: 0px !important;">
     <div class="container customPaddinglr">
       <div class="row flex-column-reverse flex-md-row" style="background:#ffffff;">
@@ -52,6 +59,7 @@ We consider ourselves beauty service "match-makers" and unity is one of our core
 		</div>
     <div class="col-md-6" >
       <img src="assets/HB2.jpg" class="we_are" style="height: 100%;object-fit: contain;">
+
    </div> 
     
     </div>  
@@ -374,6 +382,152 @@ export default {
 	}
 }
 </script>
+<style scoped>
+	.accordion_one .panel-group {
+    border: 1px solid #f1f1f1;
+    margin: 40px;
+}
+.headd{
+	font-size: 20px;
+	text-align: center;
+	color:#ffab00 ;
+}
+a:link {
+    text-decoration: none
+}
+
+.accordion_one .panel {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 0px solid transparent;
+    border-radius: 0;
+    margin: 0
+}
+
+.accordion_one .panel-default {
+    border: 0
+}
+
+.accordion-wrap .panel-heading {
+    padding: 0px;
+    border-radius: 0px
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 24px
+}
+
+.accordion_one .panel .panel-heading a.collapsed {
+    color: #000;
+    display: block;
+    padding: 12px 30px;
+    border-top: 0px
+}
+
+.accordion_one .panel .panel-heading a {
+    display: block;
+    padding: 12px 30px;
+    background: #fff;
+    color: #ffab00;
+    border-bottom: 1px solid #f1f1f1
+}
+
+.accordion-wrap .panel .panel-heading a {
+    font-size: 14px
+}
+
+.accordion_one .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: 0;
+    padding-top: 0;
+    padding: 25px 30px 30px 35px;
+    background: #fff;
+    color: #999999;
+}
+
+.img-accordion {
+    width: 81px;
+    float: left;
+    margin-right: 15px;
+    display: block
+}
+
+.accordion_one .panel .panel-heading a.collapsed:after {
+    content: "\2b";
+    color: #999999;
+    background: #f1f1f1
+}
+
+.accordion_one .panel .panel-heading a:after,
+.accordion_one .panel .panel-heading a.collapsed:after {
+    font-family: 'FontAwesome';
+    font-size: 15px;
+    width: 36px;
+    line-height: 48px;
+    text-align: center;
+    background: #F1F1F1;
+    float: left;
+    margin-left: -31px;
+    margin-top: -12px;
+    margin-right: 15px
+}
+
+.accordion_one .panel .panel-heading a:after {
+    content: "\2212"
+}
+
+.accordion_one .panel .panel-heading a:after,
+.accordion_one .panel .panel-heading a.collapsed:after {
+    font-family: 'FontAwesome';
+    font-size: 15px;
+    width: 36px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: #F1F1F1;
+    float: left;
+    margin-left: -31px;
+    margin-top: -12px;
+    margin-right: 15px
+}
+img.we_are{
+	width:100%;
+}
+.banner-text{
+	text-align:center; 
+	padding-top: 18%;
+}
+.find_braider{margin: auto;}
+
+.find_braider ul li{
+	list-style: none;
+	float: left;
+	margin-left: 10px;
+}
+
+@media screen and (max-width: 575.98px)
+{
+	
+	.banner-text h1{
+		font-size: 30px;
+	}
+	.find_braider ul{padding-left: 0px;}
+	.find_braider ul li{width: 100%;
+    margin: auto;
+		float: none;
+		margin-top:10px;
+		margin-left: 0px;
+		
+	}
+
+	img.we_are{
+
+		padding-left: 0;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+</style>
 
 <style scoped>
 	.accordion_one .panel-group {

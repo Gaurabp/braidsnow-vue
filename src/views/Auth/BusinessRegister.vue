@@ -812,9 +812,12 @@
 	data-toggle="modal"
 	style="margin-top:8%" 
 	ref="openTermAndCondition"></a>
+
 <!-- <footer-component/>  -->
 <!-- <Loader :isLoading="preLoader"/> --> 
 	<CopyRightsComponent />
+<Loader :isLoading="preLoader"/>
+>>>>>>> d6b1ddbd31aca1c3387316ed04abf7296a1fd378
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
@@ -822,9 +825,13 @@
 	import {errObj, dataObj} from './interfaces/RegisterBraiderInterface'
 	import Swal from 'sweetalert2'
 	import Auth from '@/models/Auth'
+
 	// import Loader from '@/components/Loader';
 	// import FooterComponent from '@/components/Layout/Footer';
 	import CopyRightsComponent from '@/components/Layout/CopyRights'
+	// import Loader from '@/components/Loader';
+	// import FooterComponent from '@/components/Layout/Footer';
+
 	import { getCms } from '@/services/cms';
 	import pdfMake from 'pdfmake';
 	import pdfFonts from 'pdfmake/build/vfs_fonts';

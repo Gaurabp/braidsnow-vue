@@ -240,6 +240,12 @@
 										</a>
 									</h5>
 
+									<h5 class="pro-department" style="margin-top:10px">
+										<a @click="copyText($event,braider.id)" href="#!"  >
+											Click here to copy
+										</a>
+									</h5>
+
 								</div>
 
 								<div class="pro-info-cont">
@@ -416,9 +422,13 @@ import {favouriteStore} from '@/services/CustomerServices'
 import Auth from '@/models/Auth'
 import Social from '@/plugins/SocialShare'
 import Multiselect from '@vueform/multiselect'
+
 // import Loader from '@/components/Loader';
 // import FooterComponent from '@/components/Layout/Footer'
 import CopyRightsComponent from '@/components/Layout/CopyRights'
+
+// import Loader from '@/components/Loader';
+// import FooterComponent from '@/components/Layout/Footer'
 import swal from 'sweetalert2';
 
 	export default {

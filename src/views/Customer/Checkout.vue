@@ -340,6 +340,7 @@
 	ref="openTermAndCondition"></a>
 	<!-- <footer-component/>  -->
 	<!-- <Loader :isLoading="preLoader"/> -->
+	<Loader :isLoading="preLoader"/>
 </template>
 <script>
 	import MenuComponent from '../../components/Layout/Menu'
@@ -349,7 +350,11 @@
 	import moment from 'moment';
 	import Swal from 'sweetalert2'
 	import CheckoutInterface from '@/views/interfaces/checkout.js'
+
 	// import Loader from '@/components/Loader';
+
+	// import Loader from '@/components/Loader';
+	// import FooterComponent from '@/components/Layout/Footer';
 	// import FooterComponent from '@/components/Layout/Footer';
 	import { getCms } from '@/services/cms';
 	import pdfMake from 'pdfmake';
