@@ -212,7 +212,7 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '../../components/Layout/Menu'
@@ -228,12 +228,12 @@
 		newCustomer, 
 		totalAppointment 
 	} from '@/services/dashboardService'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default {
 		name:'BraiderDashboard',
-		components:{MenuComponent,Sidebar,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,FooterComponent},
 		data(){
 			return {
 				appointments:[],

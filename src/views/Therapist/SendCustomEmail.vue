@@ -68,7 +68,7 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
@@ -79,12 +79,12 @@
 	import Multiselect from '@vueform/multiselect'
 	import { customer } from '@/services/myCustomer'
 	import Customer from '@/models/Customer'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'SendEmail',
-		components:{MenuComponent,SidebarComponent,Multiselect,Loader,FooterComponent},
+		components:{MenuComponent,SidebarComponent,Multiselect,FooterComponent},
 		data(){
 			return{
 				textMessage:'',

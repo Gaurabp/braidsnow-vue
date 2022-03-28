@@ -1,5 +1,31 @@
 <template>
 <MenuComponent/>
+<section class="" >
+		
+	<div class="container" style=" padding-right: 0px; padding-left: 0px;">
+  <div class="prodList">
+	<img src="assets/HB1.png" style="width: 100%;">
+	<div class="centered" style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><h1 style="color: #ffffff;font-family: &quot;Nunito Sans&quot; !important; font-size: 60px; font-weight: 100; text-align: center;">Find A Stylist</h1></div>
+	<div class="centered" style="font-size: 30px; color: #feaa00;position: absolute;top: 55%;left: 50%;transform: translate(-50%, -50%);">SubHeader Title</div>
+</div>
+        </div>
+	<div class="breadcrumb-bar">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-md-8 col-12">
+					<nav aria-label="breadcrumb" class="page-breadcrumb">
+						<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Find A Stylist</li>
+						</ol>
+					</nav>
+					<h2 class="breadcrumb-title">Find A Stylist</h2>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
 	<div class="breadcrumb-bar">
 		<div class="container-fluid">
 			<div class="row align-items-center">
@@ -378,8 +404,8 @@
 	<a data-target="#paymentModal" data-toggle="modal" ref="openPaymentModal"></a>
 </div>
 	<!-- <footer-component/> -->
-	<Loader :isLoading="isLoading"/>
-
+	<!-- <Loader :isLoading="isLoading"/> -->
+<CopyRightsComponent />
 </template>
 <script>
 import MenuComponent from '@/components/Layout/Menu'
@@ -390,14 +416,15 @@ import {favouriteStore} from '@/services/CustomerServices'
 import Auth from '@/models/Auth'
 import Social from '@/plugins/SocialShare'
 import Multiselect from '@vueform/multiselect'
-import Loader from '@/components/Loader';
+// import Loader from '@/components/Loader';
 // import FooterComponent from '@/components/Layout/Footer'
+import CopyRightsComponent from '@/components/Layout/CopyRights'
 import swal from 'sweetalert2';
 
 	export default {
 		name:'List',
 		// components:{MenuComponent,Multiselect,Loader,FooterComponent},
-		components:{MenuComponent,Multiselect,Loader},
+		components:{MenuComponent,Multiselect,CopyRightsComponent},
 		data(){
 			return {
 				customer:[],

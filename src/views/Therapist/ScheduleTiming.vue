@@ -398,7 +398,7 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
@@ -411,12 +411,12 @@
 	import UserScheduleTiming from '@/models/UserScheduleTiming'
 	import ScheduleTimingModal from '@/models/ScheduleTiming'
 	import ServiceModal from '@/models/Service'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'ScheduleTiming',
-		components:{MenuComponent,Sidebar,TimeOptions,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,TimeOptions,FooterComponent},
 		data(){
 			return {
 				currentDay:'',

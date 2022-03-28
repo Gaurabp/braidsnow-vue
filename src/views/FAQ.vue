@@ -1,5 +1,14 @@
 <template>
 	<MenuComponent/>
+	<section class="">
+	<div class="container" style=" padding-right: 0px; padding-left: 0px;">
+  <div class="faq">
+	<img src="assets/policy.png" style="width: 100%;">	
+	<div class="centered" style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><h1 style="color: #ffffff;font-family: &quot;Nunito Sans&quot; !important; font-size: 60px; font-weight: 100; text-align: center;">FAQ</h1></div>
+	<div class="centered" style="font-size: 30px; color: #feaa00;position: absolute;top: 55%;left: 50%;transform: translate(-50%, -50%);">SubHeader Title</div>
+        </div>
+        </div>
+	</section>
 	<div class="breadcrumb-bar">
 		<div class="container-fluid">
 			<div class="row align-items-center">
@@ -21,7 +30,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-12 col-xl-12">
-					<h2 class="headd" style="text-shadow: 4px 4px 8px #000;">Please review the answers to Frequently Asked Questions listed below. If you still need additional information please email braidsnowdotcom@gmail.com. Thank you.</h2>
+					<h2 class="headd" style="    color: #8109a6;">Please review the answers to Frequently Asked Questions listed below. If you still need additional information please email braidsnowdotcom@gmail.com. Thank you.</h2>
 					<div class="accordion_one">
 						<div class="panel-group">
 							<div class="panel panel-default" v-for="faq in faq" :key="faq.id">
@@ -142,17 +151,17 @@
 		</div>
 	</div>
 	<footer-component/> 
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
 	import { faq } from '@/services/faq'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'FAQ',
-		components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,FooterComponent},
 
 		data(){
 			return{

@@ -100,7 +100,7 @@
 			</div>
 		</div>
 		<footer-component/> 
-		<Loader :isLoading="isLoading"/>
+		<!-- <Loader :isLoading="isLoading"/> -->
 </div>
 	
 </template>
@@ -111,12 +111,12 @@
 	import Auth from '@/models/Auth'
 	import {workingDays,workingDayUpdate} from '@/services/userService'
 	import TimeOptions from '@/components/TimeOptions'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'SocialMedia',
-		components:{MenuComponent,Sidebar,TimeOptions,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,TimeOptions,FooterComponent},
 		data(){
 			return {
 				faceBook:'',

@@ -1,5 +1,8 @@
 <template>
 	<MenuComponent/>
+	<section class="" style="">
+	<img src="assets/contactbraider.png" style="width: 100%;">	
+	</section>
 	<div class="breadcrumb-bar">
 		<div class="container-fluid">
 			<div class="row align-items-center">
@@ -428,7 +431,7 @@
 	<a data-target="#paymentModal" data-toggle="modal" ref="openPaymentModal"></a>
 	</div>
 	<!-- <footer-component/> -->
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
@@ -438,14 +441,14 @@
 	import Auth from '@/models/Auth'
 	import Swal from 'sweetalert2'
 	import {favouriteStore} from '@/services/CustomerServices'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	// import FooterComponent from '@/components/Layout/Footer'
 	import Social from '@/plugins/SocialShare'
 
 	export default {
 		name:'Profile',
 		// components:{MenuComponent,Loader,FooterComponent},
-		components:{MenuComponent,Loader},
+		components:{MenuComponent},
 		data(){
 			return {
 				profileData:'',

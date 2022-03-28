@@ -76,17 +76,17 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '../../components/Layout/Menu'
 	import Sidebar from './Sidebar'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'InvoiceList',
-		components:{MenuComponent,Sidebar,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,FooterComponent},
 		data(){
 			return {
 				isLoading:true,

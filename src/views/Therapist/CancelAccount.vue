@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 	
 </template>
 <script>
@@ -36,12 +36,12 @@
 	import Swal from 'sweetalert2'
 	import Auth from '@/models/Auth'
 	import {cancelAccount} from '@/services/userService'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'CancelAccount',
-		components:{MenuComponent,SidebarComponent,Loader,FooterComponent},
+		components:{MenuComponent,SidebarComponent,FooterComponent},
 		data(){
 			return {
 				isLoading:true,

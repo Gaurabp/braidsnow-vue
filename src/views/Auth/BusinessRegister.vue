@@ -1,17 +1,24 @@
 <template>
 	<MenuComponent/>
 	<section class="" style="">
-	<img src="assets/stylers2.jpg" style="width: 100%;">	
-	<h2 style="background: rgb(255, 171, 0);margin-bottom: 0px;padding: 10px 10px 10px 10px;text-align: center;    font-weight: 500;">Join The BraidsNow.com Community</h2>
+	
+	<div class="container" style=" padding-right: 0px; padding-left: 0px;">
+  <div class="customerDashboard">
+	<img src="assets/stylers2.jpg" style="width: 100%;">
+	<div class="centered" style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+	<h1 style="color: #ffffff;font-family: &quot;Nunito Sans&quot; !important; font-size: 60px; font-weight: 100; text-align: center;">Register My Business</h1></div>
+	<div class="centered" style="font-size: 30px; color: #feaa00;position: absolute;top: 55%;left: 50%;transform: translate(-50%, -50%);">SubHeader Title</div>
+        </div>
+        </div>	
 	</section>
 	<div class="content" style="">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
-					<div class="account-content" style="margin-bottom: 40px; padding: 10% 8% 10% 8%;">
+					<div class="account-content" style="margin-bottom: 40px; padding: 0% 8% 0% 8%;">
 						<div class="row align-items-center justify-content-center">
 							
-							<div class="col-md-12 col-lg-10 login-right" style="box-shadow: none;">
+							<div class="col-md-12 col-lg-10 login-right" style="box-shadow: none; margin-top:5%;">
 								<div class="login-header">
 									<h3>Braider Register 
 										<router-link :to="{name:'Register'}">Not a Braider?</router-link>
@@ -717,7 +724,7 @@
 									<div class="terms-accept">
 										<div class="custom-checkbox">
 											<input type="checkbox" id="terms_accept">&nbsp;
-											<label for="terms_accept">By clicking "Submit Payment" I agree to Braidsnow's <a href="#" @click="termAndCondition($event)">Terms &amp; Conditions</a></label> 
+											<label for="terms_accept" class="checkboxLabel">By clicking "Submit Payment" I agree to Braidsnow's <a href="#" @click="termAndCondition($event)">Terms &amp; Conditions</a></label> 
 											<label for="terms_accept1"><strong>Note: </strong>
 												After your 30-day trial,your card will be charged $19.99/Month to use the BraidsNow Platform
 											</label> 
@@ -749,7 +756,7 @@
 									<div class="terms-accept">
 										<div class="custom-checkbox">
 											<input type="checkbox" id="terms_accept">&nbsp;
-											<label for="terms_accept">By clicking "Submit Payment" I agree to Braidsnow's <a href="#" @click="termAndCondition($event)">Terms &amp; Conditions</a></label> 
+											<label for="terms_accept" class="checkboxLabel">By clicking "Submit Payment" I agree to Braidsnow's <a href="#" @click="termAndCondition($event)">Terms &amp; Conditions</a></label> 
 										</div>
 									</div>
 									<div class="submit-section mt-4" v-if="isLoading">
@@ -806,7 +813,8 @@
 	style="margin-top:8%" 
 	ref="openTermAndCondition"></a>
 <!-- <footer-component/>  -->
-<Loader :isLoading="preLoader"/>
+<!-- <Loader :isLoading="preLoader"/> --> 
+	<CopyRightsComponent />
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
@@ -814,8 +822,9 @@
 	import {errObj, dataObj} from './interfaces/RegisterBraiderInterface'
 	import Swal from 'sweetalert2'
 	import Auth from '@/models/Auth'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	// import FooterComponent from '@/components/Layout/Footer';
+	import CopyRightsComponent from '@/components/Layout/CopyRights'
 	import { getCms } from '@/services/cms';
 	import pdfMake from 'pdfmake';
 	import pdfFonts from 'pdfmake/build/vfs_fonts';
@@ -824,7 +833,7 @@
 
 	export default {
 		name: 'BusinessRegister',
-		components:{MenuComponent,Loader},
+		components:{MenuComponent,CopyRightsComponent},
 		data(){
 			return {
 				userplaces: {

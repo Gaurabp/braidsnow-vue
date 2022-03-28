@@ -145,19 +145,19 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 import MenuComponent from '@/components/Layout/Menu'
 import {Invoice} from '@/services/websiteServices'
-import Loader from '@/components/Loader';
+// import Loader from '@/components/Loader';
 import FooterComponent from '@/components/Layout/Footer'
 import { settings } from '@/services/auth'
 import AssetsPath from '@/utils/AssetsPath';
 
 	export default {
 		name:'BookingSuccess',
-		components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,FooterComponent},
 		data(){
 			return {
 				invoice:{},

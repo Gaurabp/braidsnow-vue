@@ -41,20 +41,20 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '../../components/Layout/Menu'
 	import Sidebar from './Sidebar'
 	import {hairStyle} from '@/services/dashboardService'
 	import Auth from '@/models/Auth'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer';
 	import NoDataFound from '@/components/NoDataFound';
 
 	export default{
 		name:'Portfolio',
-		components:{MenuComponent,Sidebar,Loader,FooterComponent,NoDataFound},
+		components:{MenuComponent,Sidebar,FooterComponent,NoDataFound},
 
 		data(){
 		return {

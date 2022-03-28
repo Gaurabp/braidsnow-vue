@@ -1,8 +1,10 @@
 <template>
 	<MenuComponent/>
-	
-	<div class="content">
-		
+	<section class="" style="">
+	<img src="assets/stylers2.jpg" style="width: 100%;">	
+	<h2 style="background: rgb(255, 171, 0);margin-bottom: 0px;padding: 10px 10px 10px 10px;text-align: center;    font-weight: 500;">Join The BraidsNow.com Community</h2>
+	</section>
+	<div class="content" style="padding: 4% 8% 2% 8%;">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
@@ -161,17 +163,19 @@
 		</div>
 	</div>
 	<!-- <footer-component/>  -->
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
+	<CopyRightsComponent />
 </template>
 <script>
 import MenuComponent from '@/components/Layout/Menu'
-import Loader from '@/components/Loader';
+// import Loader from '@/components/Loader';
 // import FooterComponent from '@/components/Layout/Footer'
+import CopyRightsComponent from '@/components/Layout/CopyRights'
 import {customerRegister} from '@/services/auth'
 import Auth from '@/models/Auth'
 	export default {
 		name:'Register',
-		components:{MenuComponent,Loader},
+		components:{MenuComponent,CopyRightsComponent},
 		data(){
 			return {
 				services: [],

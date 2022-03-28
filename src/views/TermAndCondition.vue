@@ -1,5 +1,8 @@
 <template>
   <MenuComponent/>
+  <section class="" style="">
+	<img src="assets/brnow.png" style="width: 100%;">	
+	</section>
 	<div class="breadcrumb-bar">
 		<div class="container-fluid">
 			<div class="row align-items-center">
@@ -19,24 +22,24 @@
 	<div class="content">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-12 col-xl-12" style="color: white; text-shadow: 2px 2px 2px #000; font-size: 20px;">
+				<div class="col-md-12 col-lg-12 col-xl-12" style="color: black; font-size: 20px;">
 					<p v-html="term.description"></p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<footer-component/> 
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
 	import { getCms } from '@/services/cms'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'TermAndCondition',
-		components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,FooterComponent},
 
 		data(){
 			return{

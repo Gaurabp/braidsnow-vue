@@ -1,6 +1,6 @@
 <template>
 	<footer class="footer" style="margin-top: 0%;">
-		<div class="footer-mail text-center" style=" background: black;">
+		<!--<div class="footer-mail text-center" style=" background: black;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 col-md-12">
@@ -8,7 +8,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<div class="footer-top" style="background: url(assets/HB5.jpg)  no-repeat; background-size: cover;">
 			<div class="container">
 				<div class="row">

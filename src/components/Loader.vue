@@ -1,10 +1,10 @@
 <template>
 	<!-- <img src="assets\loader2.gif" alt=""> -->
 	<div tabindex="0" class="vld-overlay is-active is-full-page" aria-busy="true" aria-label="Loading" style="" v-if="isLoading">
-		<div class="vld-background" style="background: #000; opacity: 1; backdrop-filter: blur(2px);">
+		<div class="vld-background" style="background: #fff; opacity: 1; backdrop-filter: blur(2px);">
 		</div>
-		<div class="vld-icon">
-			<img src="assets\loader2.gif" class="img-fluid img-responsive"  style=" width: 100%;
+		<div class="vld-icon" style="text-align: center;margin: auto;">
+			<img src="assets\newLoader.gif" class="img-fluid img-responsive"  style=" width: 50%;
   height: auto;position: relative;">
 		</div>
 	</div>

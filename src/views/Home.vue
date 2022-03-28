@@ -2,14 +2,9 @@
 	<MenuComponent/>
 	<section class="section home-banner row-middle">
 		<div class="inner-bg"></div>
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-lg-12 col-md-12 banner-text " style="">
-					<!-- <div class="banner-content"> -->
+		<div class="banner-content">
 					<!-- 	<img src="assets/img/logospa.png" class="img-fluid" alt="Dream spa"> -->
-						<h1 style="color: white; font-family:'Nunito Sans' !important;font-size: 60px;
-    font-weight: 100;">
+						<h1 style="color: white; font-family:'Nunito Sans' !important;font-weight: 100;">
 							{{ setting.sec1_title }}
 						</h1>
 						<p style="color: white; font-size: 30px;">{{ setting.sec1_subtitle }}</p>
@@ -35,31 +30,28 @@ padding: 10px 55px;color: #8109a6;"
 							</ul>
 							</div>
 						</div>
-					<!-- </div> -->
-				</div>
-			</div>
-		</div>
+					</div>
 	</section>
 
 	<section class="about-two pt-5 pb-0" style=" padding-top: 0px !important;">
-    <div class="container" style="padding-right: 0px; padding-left: 0px;">
-      <div class="row" style="background:#ffffff;">
-		<div class="col-md-6" style="margin: 2% 0px 2% 0px; padding: 0% 4% 0% 4%;">
+    <div class="container customPaddinglr">
+      <div class="row flex-column-reverse flex-md-row" style="background:#ffffff;">
+		<div class="col-md-6">
          <p style="font-family:'Nunito Sans'; text-align: center !important; color:#7d00a4;">BRAIDSNOW.COM</p>
          <hr style="    background: #feaa00;    width: 20%;">
 		<h3 style="font-size: 35px; color: rgb(125 0 164); text-align: center;  font-family: inherit;
     text-transform: uppercase; font-weight: 800;"> Who We Are</h3>
-<p class="about-two__text" style="font-size: 20px; text-align: center; color: #7d00a4;">BraidsNow.com is a resource for all things Braids and Black Hair. This site was built for talented stylists who are all about their business and delivering excellent service to their clients and for a community of people who take pride in their hair and in themselves. We believe hair styles are a work of art and should be appreciated as such.</p>
-
-<p style="font-size: 20px; text-align: center; color: #7d00a4;">This platform is an appointment booking and marketing tool for braiders and other stylists who specialize in Black Hair. This is also a place for clients to find new stylists who meet their needs all across the USA. Its about time for us to have one place where we can conveniently find stylists who specilize in our unique hair texture. We will be promoting the site to people in search of the perfect braider/stylist in their area. We will also provide style ideas as well as blogs, news articles and other resources. We’re passionate about braids and Black Hair and are creating a strong network for those in search of a bomb stylist.</p>
-
-<p style="font-size: 20px; text-align: center; color: #7d00a4;">We consider ourselves beauty service "match-makers" and unity is one of our core values. We bring people together to help them achieve their goals and become more successful and beautiful. Strengthening the black economy, doing our part to give back to the community, and closing the racial wealth gap are some of our top priorities. Our site will continuously add new functionality and resources for users so please stay rockin’ with us because there is definitely much more in store!</p>
+<p class="about-two__text" style="font-size: 20px; text-align: center; color: #7d00a4;">BraidsNow.com is a resource for all things Braids and Black Hair. This site was built for talented stylists who are all about their business and delivering excellent service to their clients and for a community of people who take pride in their hair and in themselves. We believe hair styles are a work of art and should be appreciated as such. 
+<!--This platform is an appointment booking and marketing tool for braiders and other stylists who specialize in Black Hair. This is also a place for clients to find new stylists who meet their needs all across the USA. Its about time for us to have one place where we can conveniently find stylists who specilize in our unique hair texture. We will be promoting the site to people in search of the perfect braider/stylist in their area. We will also provide style ideas as well as blogs, news articles and other resources. We’re passionate about braids and Black Hair and are creating a strong network for those in search of a bomb stylist.-->
+We consider ourselves beauty service "match-makers" and unity is one of our core values. We bring people together to help them achieve their goals and become more successful and beautiful. Strengthening the black economy,... 
+<!--doing our part to give back to the community, and closing the racial wealth gap are some of our top priorities. Our site will continuously add new functionality and resources for users so please stay rockin’ with us because there is definitely much more in store!-->
+</p>
 <div class="mt-5" style="text-align: center;">
 	<a href="#" class="btn btn-primary book-btn" >Learn More</a>
 </div>	
 		</div>
     <div class="col-md-6" >
-      <img src="assets/whowe.jpg" class="we_are">
+      <img src="assets/HB2.jpg" class="we_are" style="height: 100%;object-fit: contain;">
    </div> 
     
     </div>  
@@ -113,13 +105,13 @@ padding: 10px 55px;color: #8109a6;"
 		</div>
 	</section>-->
 
-	<section class="section treatments">
+	<section class="section treatments whyJoin">
 <div class="container">
 <div class="row">
 <div class="col-md-12">
 <h3 style="font-weight: 400; font-size: 50px; color: #feaa00;font-family: 'Nunito Sans';">Why Join BraidsNow.com</h3>
 	
-		<p style="font-size: 25px;" v-for="(why,index) in why" :key="why.id">
+		<p v-for="(why,index) in why" :key="why.id">
 		{{ ++index }}. {{why.content}}</p>
 		
 	
@@ -130,16 +122,17 @@ padding: 10px 55px;color: #8109a6;"
 
 <section class="wite bacgrounder">
 <div class="row">
-				<div class="col-md-7 col-sm-12 col-12 mx-auto">
-					<div class="section-header text-center" style="margin: 0px 0px;">
-							<h2 class="header-title" style="font-size: 35px; color: rgb(125 0 164);
-    text-align: center; font-family: inherit; text-transform: uppercase; font-weight: 800;">
-    {{ setting.sec3_title }}</h2>
-<p class="header-subtitle">{{ setting.sec3_subtitle }}</p>
-</div>
-</div>
+				
 </div>
 	<section class="section theraphist">
+	<div class="col-md-7 col-sm-12 col-12 mx-auto">
+					<div class="section-header text-center" style="margin: 0px 0px;">
+							<h2 class="header-title" style="font-size: 35px; color: rgb(255 171 0);
+    text-align: center; font-family: inherit; text-transform: uppercase; font-weight: 800;">
+    {{ setting.sec3_title }}</h2>
+<p class="header-subtitle" style="color: rgb(255 171 0);">{{ setting.sec3_subtitle }}</p>
+</div>
+</div>
 		<div class="container">
 			
 
@@ -186,18 +179,20 @@ padding: 10px 55px;color: #8109a6;"
 </section>
 </section>
 <section class="about-two pt-5 pb-0" style=" padding-top: 0px !important;">
-    <div class="container" style="padding-right: 0px; padding-left: 0px;">
+    <div class="container customPaddingl">
       <div class="row">
     <div class="col-md-6">
-      <img src="assets/register.jpg" class="we_are">
+      <img src="assets/HB4.jpg" class="we_are2" style="float:left; width:100%;height:100%;object-fit: cover;">
     </div>  
-    <div class="col-md-6" style="text-align: center; margin: 2% 0px 2% 0px; padding: 0% 4% 0% 4%;">
-      <h3 style="font-size:35px;color: rgb(129 9 166);"> {{ whoWeData.title || "" }} </h3>
+    <div class="col-md-6">
+    <p style="font-family:'Nunito Sans'; text-align: center !important; color:#7d00a4;">BRAIDSNOW.COM</p>
+         <hr style="    background: #feaa00;    width: 20%;">
+      <h3 style="font-size:35px;text-align: center;color: rgb(129 9 166);"> {{ whoWeData.title || "" }} </h3>
       <div style="font-size:20px;    color: rgb(255 255 255);">
 <p class="about-two__text" v-html="whoWeData.description" style="font-size: 20px;text-align: center;
 color: #7d00a4;"> </p>
 </div>
-<div class="mt-5">
+<div class="mt-5" style="text-align: center;">
 	<a href="#" class="btn btn-primary book-btn">START YOUR FREE TRIAL</a>
 </div>
    </div>  
@@ -489,11 +484,11 @@ h4 {
     margin-right: 15px
 }
 img.we_are{
-	width:100%;
+	width:120%;
 }
 .banner-text{
 	text-align:center; 
-	padding-top: 18%;
+	padding-top: 11%;
 }
 .find_braider{margin: auto;}
 
@@ -508,6 +503,7 @@ img.we_are{
 	
 	.banner-text h1{
 		font-size: 30px;
+		margin-top: 20%;
 	}
 	.find_braider ul{padding-left: 0px;}
 	.find_braider ul li{width: 100%;

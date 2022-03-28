@@ -109,17 +109,17 @@
 		</div>
 	</div>
 	<footer-component/> 
-	<Loader :isLoading="preLoader"/>
+	<!-- <Loader :isLoading="preLoader"/> -->
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
 	import {ClearDue} from  '@/services/websiteServices'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'subscription',
-		components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,FooterComponent},
 		data(){
 			return{
 				errors:{},

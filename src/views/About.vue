@@ -32,13 +32,13 @@
     </div>
   </section>-->
 
-  <section class="" style="">
-  <div>
-	<img src="assets/stylers2.jpg" style="width: 100%;">	
-	<div>
-	<h1 data-v-fae5bece="" style="color: #feaa00; font-family: &quot;Nunito Sans&quot; !important; font-size: 60px; font-weight: 100; text-align: center;">About BraidsNow! </h1>
-            <p data-v-fae5bece="" style="color: #feaa00; font-size: 30px; text-align: center;">SubHeader Title</p>
-            </div>
+  <section class="aboutUs">
+	<div class="container" style=" padding-right: 0px; padding-left: 0px;">
+  <div class="">
+	<img src="assets/brnow1.png" style="width: 100%;">	
+	<div class="centered" style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><h1 style="color: #ffffff;font-family: &quot;Nunito Sans&quot; !important; font-size: 60px; font-weight: 100; text-align: center;">About BraidsNow!</h1></div>
+	<div class="centered" style="font-size: 30px; color: #feaa00;position: absolute;top: 55%;left: 50%;transform: translate(-50%, -50%);">SubHeader Title</div>
+        </div>
         </div>
 	</section>
 
@@ -46,7 +46,7 @@
 	
 		<div class="container" style="padding-right:0px;padding-left:0px;">
 			<div class="row">
-				<div class="col-md-6" style="margin:2% 0px 2% 0px;padding:0% 4% 0% 4%;">
+				<div class="col-md-6" style="padding: 4% 4% 4% 4%;">
 				<p style="font-family:'Nunito Sans';text-align:center !important;color:#7d00a4;" data-v-fae5bece="">BRAIDSNOW.COM</p>
 				<hr style="background:#feaa00;width:20%;">
 				<h2 style="font-size: 35px; color: rgb(125 0 164);text-align: center;font-family: inherit;    text-transform: uppercase;font-weight: 800;">WE CONNECT WITH THE BEST STYLISTS IN THE BUSINESS!</h2>
@@ -56,11 +56,11 @@
 					</div>
 				</div>
                 <div class="col-md-6 ">
-					<img src="assets/aboutus.jpg" style="max-width: 100%;">
+					<img src="assets/aboutus.png" style="float: left;width: 100%;">
 				</div>
 			</div>
 		</div>
-       <section class="section treatments" data-v-fae5bece="">
+       <section class="section treatments" data-v-fae5bece="" style="margin-top: -3%;">
          <div class="container" data-v-fae5bece="">
            <div class="row" data-v-fae5bece="">
              <div class="col-md-12" data-v-fae5bece="">
@@ -78,16 +78,16 @@
           <div class="col-md-6" data-v-fae5bece="">
             <img src="assets/HB8.jpg" class="we_are" data-v-fae5bece="">
           </div>
-        <div class="col-md-6" data-v-fae5bece="" style="text-align: center; margin: 2% 0px; padding: 0% 4%;">
+        <div class="col-md-6" data-v-fae5bece="" style="padding: 4% 4% 4% 4%;">
         <p data-v-fae5bece="" style="font-family: &quot;Nunito Sans&quot;; text-align: center !important; color: rgb(125, 0, 164);">BRAIDSNOW MEMBERSHIP</p>
         <hr style="background: rgb(254, 170, 0); width: 20%;">
           <h3 data-v-fae5bece="" style=" font-size: 35px; color: rgb(125, 0, 164);text-align: center;    font-family: inherit; text-transform: uppercase;font-weight: 800;">HERE'S AN EXCLUSIVE PLAN THAT WORKS FOR YOU!</h3>
-          <div data-v-fae5bece="" style="font-size: 20px; color: rgb(255, 255, 255);">
+          <div data-v-fae5bece="" style="font-size: 20px; color: rgb(255, 255, 255); ">
           <p class="about-two__text" data-v-fae5bece="" style="font-size: 20px;text-align: center;color: rgb(124, 0, 163);padding: 5% 8%;">
           <strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
-           <div class="mt-5" data-v-fae5bece="">
-             <a href="#" class="btn btn-primary book-btn" data-v-fae5bece="">START YOUR FREE TRIAL</a>
+           <div class="mt-5" data-v-fae5bece="" style="text-align: center;">
+             <a href="#" class="btn btn-primary book-btn" data-v-fae5bece="" >START YOUR FREE TRIAL</a>
            </div>
          </div>
         </div>
@@ -96,17 +96,17 @@
 
 
 	<footer-component/> 
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '../components/Layout/Menu'
 	import { getCms } from '@/services/cms'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'About',
-		components:{MenuComponent,Loader,FooterComponent},
+		components:{MenuComponent,FooterComponent},
 
 		data(){
 			return{

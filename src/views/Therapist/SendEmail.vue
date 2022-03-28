@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	<footer-component/>
-	<Loader :isLoading="isLoading"/>
+	<!-- <Loader :isLoading="isLoading"/> -->
 </template>
 <script>
 	import MenuComponent from '../../components/Layout/Menu'
@@ -55,12 +55,12 @@
 	import Auth from '@/models/Auth'
 	import {sendEmail} from '@/services/dashboardService'
 	import Swal from 'sweetalert2'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'SendEmail',
-		components:{MenuComponent,SidebarComponent,Loader,FooterComponent},
+		components:{MenuComponent,SidebarComponent,FooterComponent},
 		data(){
 			return{
 				textMessage:'',

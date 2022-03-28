@@ -100,7 +100,7 @@
 		</div>
 </div>
 <footer-component/>
-<Loader :isLoading="isLoading"/>
+<!-- <Loader :isLoading="isLoading"/> -->
 	
 </template>
 <script>
@@ -108,13 +108,13 @@
 	import Sidebar from './Sidebar'
 	import Swal from 'sweetalert2'
 	import Auth from '@/models/Auth'
-	import Loader from '@/components/Loader';
+	// import Loader from '@/components/Loader';
 	import { couponSet } from '@/services/dashboardService'
 	import FooterComponent from '@/components/Layout/Footer'
 
 	export default{
 		name:'CreateCoupon',
-		components:{MenuComponent,Sidebar,Loader,FooterComponent},
+		components:{MenuComponent,Sidebar,FooterComponent},
 		data(){
 			
 			return {
