@@ -42,24 +42,7 @@
 								<p v-if="loginedUser" style="color: #ffffff !important;">
 									<router-link :to="{name: loginedUser?.role_id == 2 ?'BraiderDashboard':'Dashboard'}">Dashboard
 									</router-link>
-<<<<<<< HEAD
 								</p>
-=======
-								</li>
-								
-							</ul>
-						</div>
-					</div>
-					
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-widget footer-menu">
-							<h2 class="footer-title">Useful links</h2>
-							<ul>
-								<li>
-									<router-link :to="{name:'PrivacyPolicy'}">
-										Privacy Policy
-									</router-link>
->>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 								</li>
 								<li>
 									<router-link :to="{name:'RefundPolicy'}">Refund Policy
@@ -99,11 +82,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="footer-widget footer-menu">
 							<h2 class="footer-title" style="margin-bottom: 10px;">Newsletter</h2>
-<<<<<<< HEAD
 							<h5 style="color:white;padding-bottom: 10px; font-size: 13px;font-weight: 200;">Sign up below to receive latest updates and news</h5>
-=======
-							<h5 style="color:white;padding-bottom: 10px; font-size: 14px;">Sign up below to receive latest updates and news</h5>
->>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 							<div class="input-group mb-3">
 <input type="email" v-model="email" class="form-control" placeholder="Your Email Address">
 <div class="input-group-append">
@@ -143,13 +122,8 @@
 export default {
 	name: 'Footer',
 	data(){
-<<<<<<< HEAD
 		return {
 			email:''
-=======
-		return{
-			email:'',
->>>>>>> 5f77874dcc2d338c2e272b2305b88a66131b92f3
 		}
 	},
 	computed: {
