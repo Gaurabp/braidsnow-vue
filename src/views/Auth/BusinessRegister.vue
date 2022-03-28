@@ -816,8 +816,7 @@
 <!-- <footer-component/>  -->
 <!-- <Loader :isLoading="preLoader"/> --> 
 	<CopyRightsComponent />
-<Loader :isLoading="preLoader"/>
->>>>>>> d6b1ddbd31aca1c3387316ed04abf7296a1fd378
+<!-- <Loader :isLoading="preLoader"/> -->
 </template>
 <script>
 	import MenuComponent from '@/components/Layout/Menu'
